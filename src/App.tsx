@@ -1,14 +1,8 @@
-import Main from 'pages/Main';
 import React, { FunctionComponent } from 'react';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
 const App: FunctionComponent = () => {
-	const router = createBrowserRouter([
-		{
-			path: '/',
-			element: <Main />,
-		},
-	]);
 	return (
 		<React.StrictMode>
 			<RouterProvider router={router} />

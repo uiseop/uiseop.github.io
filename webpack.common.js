@@ -22,9 +22,9 @@ module.exports = {
 	},
 	resolve: {
 		alias: {
-			components: path.resolve(__dirname, 'src/components'),
-			hooks: path.resolve(__dirname, 'src/hooks'),
-			pages: path.resolve(__dirname, 'src/pages'),
+			'@components': path.resolve(__dirname, 'src/components'),
+			'@hooks': path.resolve(__dirname, 'src/hooks'),
+			'@pages': path.resolve(__dirname, 'src/pages'),
 		},
 		extensions: ['.ts', '.tsx', '.js', '.jsx'],
 	},
