@@ -76,22 +76,27 @@ const resetStyle = css`
 	}
 `;
 
+const commonStyle = css`
+	--colors-primary: rgb(76, 209, 55);
+`;
+
 const lightStlye = css`
 	body[data-theme='light'] {
-		--colors-primary: black;
+		--colors-text: black;
 		--colors-background: white;
 	}
 `;
 
 const darkStyle = css`
 	body[data-theme='dark'] {
-		--colors-primary: white;
+		--colors-text: white;
 		--colors-background: black;
 	}
 `;
 
 const defaultStyle = css`
 	${resetStyle};
+	${commonStyle};
 	${lightStlye};
 	${darkStyle};
 `;

@@ -1,4 +1,5 @@
 import ThemeToggler from '@components/common/ThemeToggler';
+import { theme } from '@components/common/theme';
 import styled from '@emotion/styled';
 import { FunctionComponent } from 'react';
 
@@ -13,8 +14,8 @@ const Main: FunctionComponent = () => {
 
 const PrimaryText = styled.div({
 	padding: 20,
-	color: 'var(--colors-primary)',
-	backgroundColor: 'var(--colors-background)',
+	color: theme.colors.text,
+	backgroundColor: theme.colors.background,
 });
 
 export default Main;
