@@ -78,7 +78,7 @@ const StyledLink = styled(NavLink)({
 
 	'&::after': {
 		content: '""',
-		backgroundColor: theme.colors.text,
+		borderBottom: `1px solid ${theme.colors.text}`,
 		position: 'absolute',
 		width: '13px',
 		height: '1px',
