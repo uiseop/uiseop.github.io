@@ -74,10 +74,18 @@ const resetStyle = css`
 	th {
 		padding: 0;
 	}
+	a {
+		text-decoration: none;
+		color: var(--colors-text);
+	}
 `;
 
 const commonStyle = css`
-	--colors-primary: rgb(76, 209, 55);
+	:root {
+		--colors-primary: rgb(76, 209, 55);
+		--colors-background2: rgb(113, 128, 147);
+		--colors-anchor: rgb(0, 168, 255);
+	}
 `;
 
 const lightStlye = css`
@@ -100,7 +108,5 @@ const defaultStyle = css`
 	${lightStlye};
 	${darkStyle};
 `;
-
-console.log(defaultStyle, 'haha');
 
 export default GlobalStyle;

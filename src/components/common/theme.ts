@@ -3,6 +3,8 @@ type Theme = {
 		primary: string;
 		text: string;
 		background: string;
+		background2: string;
+		anchor: string;
 	};
 };
 
@@ -13,5 +15,7 @@ export const theme: Theme = {
 		text: cssVar('colors-text'),
 		primary: cssVar('colors-primary'),
 		background: cssVar('colors-background'),
+		background2: cssVar('colors-background2'),
+		anchor: cssVar('colors-anchor'),
 	},
 };
