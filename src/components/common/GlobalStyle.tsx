@@ -76,8 +76,26 @@ const resetStyle = css`
 	}
 `;
 
-const defaultStyle = {
-	...resetStyle,
-};
+const lightStlye = css`
+	body[data-theme='light'] {
+		--colors-primary: black;
+		--colors-background: white;
+	}
+`;
+
+const darkStyle = css`
+	body[data-theme='dark'] {
+		--colors-primary: white;
+		--colors-background: black;
+	}
+`;
+
+const defaultStyle = css`
+	${resetStyle};
+	${lightStlye};
+	${darkStyle};
+`;
+
+console.log(defaultStyle, 'haha');
 
 export default GlobalStyle;
