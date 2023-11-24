@@ -86,6 +86,20 @@ const commonStyle = css`
 		--colors-background2: rgb(113, 128, 147);
 		--colors-anchor: rgb(0, 168, 255);
 	}
+
+	/* 스크롤바의 폭 너비 */
+	::-webkit-scrollbar {
+		width: 10px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: #6666666a; /* 스크롤바 색상 */
+		border-radius: 10px; /* 스크롤바 둥근 테두리 */
+	}
+
+	::-webkit-scrollbar-track {
+		background: #ddd; /*스크롤바 뒷 배경 색상*/
+	}
 `;
 
 const lightStlye = css`
