@@ -71,8 +71,10 @@ const CursorSpan = styled.span({
 	'&::after': {
 		content: '""',
 		position: 'absolute',
-		right: '-4px',
-		height: '100%',
+		right: '-6px',
+		top: '50%',
+		transform: 'translateY(-50%)',
+		height: '3rem',
 		backgroundColor: theme.colors.background,
 		borderLeft: `3px solid ${theme.colors.text}`,
 		borderRadius: '3px',
