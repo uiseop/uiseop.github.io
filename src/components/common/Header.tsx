@@ -49,7 +49,7 @@ const ContentWrapper = styled.div({
 	alignItems: 'center',
 
 	'& > a': {
-		fontSize: '2rem',
+		fontSize: '1.3rem',
 		fontWeight: 'bold',
 	},
 });
