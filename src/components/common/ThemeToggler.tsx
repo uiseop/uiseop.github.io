@@ -29,9 +29,9 @@ const ThemeToggler: FunctionComponent = () => {
 };
 
 const Button = styled.button({
-	position: 'absolute',
+	position: 'fixed',
 	right: '30px',
-	bottom: '15px',
+	bottom: '30px',
 	width: '60px',
 	height: '60px',
 	borderRadius: '50%',
