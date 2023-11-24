@@ -7,26 +7,36 @@ import { theme } from '@components/common/theme';
 const Main: FunctionComponent = () => {
 	return (
 		<Template>
-			<header>
-				<Title>CHUG ALONG</Title>
-				<Author>by Seop_ee</Author>
-			</header>
-			<Navigation>
-				<ul>
-					<li>
-						<StyledLink to={'/'}>HOME</StyledLink>
-					</li>
-					<li>
-						<StyledLink to={'/about'}>ABOUT</StyledLink>
-					</li>
-					<li>
-						<StyledLink to={'/posts'}>POSTS</StyledLink>
-					</li>
-				</ul>
-			</Navigation>
+			<Wrapper>
+				<header>
+					<Title>CHUG ALONG</Title>
+					<Author>by Seop_ee</Author>
+				</header>
+				<Navigation>
+					<ul>
+						<li>
+							<StyledLink to="/">HOME</StyledLink>
+						</li>
+						<li>
+							<StyledLink to="/about">ABOUT</StyledLink>
+						</li>
+						<li>
+							<StyledLink to="/posts">POSTS</StyledLink>
+						</li>
+					</ul>
+				</Navigation>
+			</Wrapper>
 		</Template>
 	);
 };
+
+const Wrapper = styled.div({
+	height: '100vh',
+	display: 'flex',
+	justifyContent: 'center',
+	alignItems: 'center',
+	gap: '135px',
+});
 
 const Title = styled.h1({
 	fontSize: '3rem',
@@ -61,6 +71,10 @@ const Navigation = styled.nav({
 const StyledLink = styled(NavLink)({
 	color: theme.colors.text,
 	position: 'relative',
+
+	'&:hover': {
+		color: theme.colors.primary,
+	},
 
 	'&::after': {
 		content: '""',
