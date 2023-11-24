@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode } from 'react';
-import Footer from './Footer';
 import styled from '@emotion/styled';
 import { theme } from './theme';
+import Footer from './Footer';
 import ThemeToggler from './ThemeToggler';
 
 type TemplateProps = {

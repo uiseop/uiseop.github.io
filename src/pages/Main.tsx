@@ -1,8 +1,8 @@
-import Template from '@components/common/Template';
-import { theme } from '@components/common/theme';
-import styled from '@emotion/styled';
 import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
+import styled from '@emotion/styled';
+import Template from '@components/common/Template';
+import { theme } from '@components/common/theme';
 
 const Main: FunctionComponent = () => {
 	return (
