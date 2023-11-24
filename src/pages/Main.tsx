@@ -1,7 +1,7 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent } from 'react';
 
 const Main: FunctionComponent = () => {
-  return <div>Hell React!!</div>;
+	return <div>Hell React!!</div>;
 };
 
 export default Main;
