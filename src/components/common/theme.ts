@@ -5,6 +5,10 @@ type Theme = {
 		background: string;
 		background2: string;
 		anchor: string;
+		secondaryText: string;
+		aboutLinkIcon: string;
+		aboutLinkIconHover: string;
+		tipBackground: string;
 	};
 };
 
@@ -17,5 +21,9 @@ export const theme: Theme = {
 		background: cssVar('colors-background'),
 		background2: cssVar('colors-background2'),
 		anchor: cssVar('colors-anchor'),
+		secondaryText: cssVar('colors-secondary-text'),
+		aboutLinkIcon: cssVar('colors-about-link-icon'),
+		aboutLinkIconHover: cssVar('colors-about-link-icon-hover'),
+		tipBackground: cssVar('colors-tip-background'),
 	},
 };

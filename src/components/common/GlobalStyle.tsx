@@ -85,6 +85,10 @@ const commonStyle = css`
 		--colors-primary: rgb(76, 209, 55);
 		--colors-background2: rgb(113, 128, 147);
 		--colors-anchor: rgb(0, 168, 255);
+		--colors-secondary-text: #9e9e9e;
+		--colors-tab-text: #6e6d7a;
+		--colors-about-link-icon-hover: rgba(0, 0, 0, 0.06);
+		--colors-tip-background: #939393;
 	}
 
 	/* 스크롤바의 폭 너비 */
@@ -106,6 +110,7 @@ const lightStlye = css`
 	body[data-theme='light'] {
 		--colors-text: black;
 		--colors-background: white;
+		--colors-about-link-icon: #a8a8a8;
 	}
 `;
 
@@ -113,6 +118,7 @@ const darkStyle = css`
 	body[data-theme='dark'] {
 		--colors-text: white;
 		--colors-background: black;
+		--colors-about-link-icon: white;
 	}
 `;
 
