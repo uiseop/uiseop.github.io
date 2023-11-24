@@ -19,6 +19,7 @@ const Footer: FunctionComponent = () => {
 
 const Wrapper = styled.footer({
 	display: 'flex',
+	marginTop: 'auto',
 	height: '63px',
 	justifyContent: 'center',
 	alignItems: 'center',

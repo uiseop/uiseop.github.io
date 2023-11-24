@@ -11,21 +11,22 @@ type TemplateProps = {
 const Template: FunctionComponent<TemplateProps> = ({ children }) => {
 	return (
 		<>
-			<Wrapper>{children}</Wrapper>
+			<Wrapper>
+				{children}
+				<Footer />
+			</Wrapper>
 			<ThemeToggler />
-			<Footer />
 		</>
 	);
 };
 
 const Wrapper = styled.div({
-	height: '100vh',
 	display: 'flex',
-	justifyContent: 'center',
+	minHeight: '100vh',
+	flexDirection: 'column',
 	alignItems: 'center',
 	minWidth: '375px',
 	backgroundColor: theme.colors.background,
-	gap: '135px',
 });
 
 export default Template;
