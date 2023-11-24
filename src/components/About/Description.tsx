@@ -74,7 +74,8 @@ const CursorSpan = styled.span({
 		right: '-4px',
 		height: '100%',
 		backgroundColor: theme.colors.background,
-		borderLeft: `2px solid ${theme.colors.text}`,
+		borderLeft: `3px solid ${theme.colors.text}`,
+		borderRadius: '3px',
 		animation: `${blink} 0.7s infinite`,
 	},
 });
