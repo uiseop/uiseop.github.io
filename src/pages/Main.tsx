@@ -1,32 +1,29 @@
 import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
-import Template from '@components/common/Template';
 import { theme } from '@components/common/theme';
 
 const Main: FunctionComponent = () => {
 	return (
-		<Template>
-			<Wrapper>
-				<header>
-					<Title>CHUG ALONG</Title>
-					<Author>by Seop_ee</Author>
-				</header>
-				<Navigation>
-					<ul>
-						<li>
-							<StyledLink to="/">HOME</StyledLink>
-						</li>
-						<li>
-							<StyledLink to="/about">ABOUT</StyledLink>
-						</li>
-						<li>
-							<StyledLink to="/posts">POSTS</StyledLink>
-						</li>
-					</ul>
-				</Navigation>
-			</Wrapper>
-		</Template>
+		<Wrapper>
+			<header>
+				<Title>CHUG ALONG</Title>
+				<Author>by Seop_ee</Author>
+			</header>
+			<Navigation>
+				<ul>
+					<li>
+						<StyledLink to="/">HOME</StyledLink>
+					</li>
+					<li>
+						<StyledLink to="/about">ABOUT</StyledLink>
+					</li>
+					<li>
+						<StyledLink to="/posts">POSTS</StyledLink>
+					</li>
+				</ul>
+			</Navigation>
+		</Wrapper>
 	);
 };
 

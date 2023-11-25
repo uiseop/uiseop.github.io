@@ -1,17 +1,14 @@
-import { FunctionComponent, ReactNode } from 'react';
+import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import { theme } from './theme';
 import Footer from './Footer';
+import { Outlet } from 'react-router-dom';
 
-type TemplateProps = {
-	children: ReactNode;
-};
-
-const Template: FunctionComponent<TemplateProps> = ({ children }) => {
+const Template: FunctionComponent = () => {
 	return (
 		<>
 			<Wrapper>
-				{children}
+				<Outlet />
 				<Footer />
 			</Wrapper>
 		</>
@@ -24,6 +21,7 @@ const Wrapper = styled.div({
 	flexDirection: 'column',
 	alignItems: 'center',
 	minWidth: '375px',
+	padding: '0 15px',
 	backgroundColor: theme.colors.background,
 });
 

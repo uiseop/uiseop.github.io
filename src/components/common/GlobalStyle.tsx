@@ -86,7 +86,7 @@ const commonStyle = css`
 		--colors-background2: rgb(113, 128, 147);
 		--colors-anchor: rgb(0, 168, 255);
 		--colors-secondary-text: #9e9e9e;
-		--colors-tab-text: #6e6d7a;
+
 		--colors-about-link-icon-hover: rgba(0, 0, 0, 0.06);
 		--colors-tip-background: #939393;
 	}
@@ -111,6 +111,10 @@ const lightStlye = css`
 		--colors-text: black;
 		--colors-background: white;
 		--colors-about-link-icon: #a8a8a8;
+		--colors-tab-text: #6e6d7a;
+		--colors-tab-selected: #0d0c22;
+		--colors-tab-selected-background: rgba(13, 12, 34, 0.05);
+		--colors-post-card-border: rgba(0, 0, 0, 0.12);
 	}
 `;
 
@@ -119,6 +123,10 @@ const darkStyle = css`
 		--colors-text: white;
 		--colors-background: black;
 		--colors-about-link-icon: white;
+		--colors-tab-text: #768390;
+		--colors-tab-selected: #acbac7;
+		--colors-tab-selected-background: #373e47;
+		--colors-post-card-border: #363f47;
 	}
 `;
 

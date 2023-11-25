@@ -9,6 +9,10 @@ type Theme = {
 		aboutLinkIcon: string;
 		aboutLinkIconHover: string;
 		tipBackground: string;
+		tabText: string;
+		tabSelected: string;
+		tabSelectedBackground: string;
+		postCardBorder: string;
 	};
 };
 
@@ -25,5 +29,9 @@ export const theme: Theme = {
 		aboutLinkIcon: cssVar('colors-about-link-icon'),
 		aboutLinkIconHover: cssVar('colors-about-link-icon-hover'),
 		tipBackground: cssVar('colors-tip-background'),
+		tabText: cssVar('colors-tab-text'),
+		tabSelected: cssVar('colors-tab-selected'),
+		tabSelectedBackground: cssVar('colors-tab-selected-background'),
+		postCardBorder: cssVar('colors-post-card-border'),
 	},
 };
