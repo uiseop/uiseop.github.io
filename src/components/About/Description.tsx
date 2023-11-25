@@ -4,10 +4,10 @@ import styled from '@emotion/styled';
 import { theme } from '@components/common/theme';
 
 const WORDS = [
+	'지속가능한 소프트웨어를 만드는',
 	'열정이 가득한',
 	'즐겁게 일하는',
 	'함께 성장하는',
-	'지속가능한 소프트웨어를 만드는',
 ];
 
 const writeSpeed = 100;
@@ -23,12 +23,14 @@ const Description: FunctionComponent = () => {
 
 	useEffect(() => {
 		if (cursorRef.current) {
-			timer = setTimeout(typeEffect);
-
-			return () => {
-				clearTimeout(timer);
-			};
+			timer = setTimeout(typeEffect, 500);
 		}
+		return () => {
+			wordIndex = 0;
+			charIndex = 0;
+			isDeleting = false;
+			clearTimeout(timer);
+		};
 	}, []);
 
 	function typeEffect() {
