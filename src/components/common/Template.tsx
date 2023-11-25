@@ -2,7 +2,6 @@ import { FunctionComponent, ReactNode } from 'react';
 import styled from '@emotion/styled';
 import { theme } from './theme';
 import Footer from './Footer';
-import ThemeToggler from './ThemeToggler';
 
 type TemplateProps = {
 	children: ReactNode;
@@ -15,7 +14,6 @@ const Template: FunctionComponent<TemplateProps> = ({ children }) => {
 				{children}
 				<Footer />
 			</Wrapper>
-			<ThemeToggler />
 		</>
 	);
 };
