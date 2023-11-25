@@ -16,6 +16,13 @@ const PostList = () => {
 						ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout
 						ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout React
 					</PostContet>
+					<PostInfoWrapper>
+						hello wolrd
+						<CategoryWrapper>
+							<li>React</li>
+							<li>Javascript</li>
+						</CategoryWrapper>
+					</PostInfoWrapper>
 				</Link>
 			</li>
 			<li>
@@ -58,5 +65,19 @@ const PostContet = styled.p(
 	},
 	ellipsis,
 );
+
+const PostInfoWrapper = styled.div({
+	display: 'flex',
+	justifyContent: 'space-between',
+	alignItems: 'center',
+	color: theme.colors.aboutLinkIcon,
+	marginTop: '17px',
+	fontSize: '.8rem',
+});
+
+const CategoryWrapper = styled.ul({
+	display: 'flex',
+	gap: '6px',
+});
 
 export default PostList;
