@@ -20,7 +20,7 @@ const Posts: FunctionComponent = () => {
 				<Main>
 					<ul>
 						<li>
-							<Link to="/posts">
+							<Link to="/posts/1234">
 								<PostTitle>About React</PostTitle>
 								<PostContet>
 									About ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout
@@ -86,7 +86,7 @@ const Main = styled.main({
 			'&:hover': {
 				borderColor: theme.colors.primary,
 
-				'& p:first-child': {
+				'& p:first-of-type': {
 					textDecoration: 'underline',
 				},
 			},
