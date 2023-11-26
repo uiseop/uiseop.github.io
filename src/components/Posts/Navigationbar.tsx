@@ -11,16 +11,16 @@ const Navigationbar: FunctionComponent = () => {
 			<StyledLink to="/posts">
 				<CustomButton>ALL</CustomButton>
 			</StyledLink>
-			<StyledLink to="all">
+			<StyledLink to="/posts/react">
 				<CustomButton>React</CustomButton>
 			</StyledLink>
-			<StyledLink to="all">
+			<StyledLink to="/posts/Javascript">
 				<CustomButton>Javascript</CustomButton>
 			</StyledLink>
-			<StyledLink to="all">
+			<StyledLink to="/posts/Browser">
 				<CustomButton>Browser</CustomButton>
 			</StyledLink>
-			<StyledLink to="all">
+			<StyledLink to="/posts/cs">
 				<CustomButton>CS</CustomButton>
 			</StyledLink>
 		</Navigation>
