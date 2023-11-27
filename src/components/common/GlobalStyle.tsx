@@ -92,6 +92,10 @@ const commonStyle = css`
 		--colors-blockquote-background: #fafbfc2b;
 	}
 
+	html {
+		overflow-y: scroll;
+	}
+
 	/* 스크롤바의 폭 너비 */
 	::-webkit-scrollbar {
 		width: 10px;
