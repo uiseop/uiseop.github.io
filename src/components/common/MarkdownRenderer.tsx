@@ -1,10 +1,13 @@
-import Markdown, { ReactRenderer } from 'marked-react';
-import { FunctionComponent, ReactNode } from 'react';
+import Markdown from 'react-markdown';
+import React, { FunctionComponent } from 'react';
 import { theme } from './theme';
 import styled from '@emotion/styled';
 import matter, { GrayMatterFile } from 'gray-matter';
 import 'dayjs/locale/en';
 import Header from '@components/Posts/Header';
+import Lowlight from 'react-lowlight';
+import 'react-lowlight/common';
+import 'highlight.js/styles/docco.css';
 
 type MarkdownRednererProps = {
 	markdown: '*.md';
@@ -26,28 +29,13 @@ type CustomGrayMatterFile = GrayMatterFile<
 	};
 };
 
-const Blockquote: ReactRenderer['blockquote'] = (children: ReactNode) => {
-	return <BlockQuoteStyle>{children}</BlockQuoteStyle>;
-};
-
-const List: ReactRenderer['list'] = (children: ReactNode, ordered) => {
-	if (ordered) {
-		return <OrderedListStyle>{children}</OrderedListStyle>;
-	}
-	return <UnOrderedListStyled>{children}</UnOrderedListStyled>;
-};
-
-const CodeSpan: ReactRenderer['codespan'] = (children: ReactNode) => {
-	return <CodeStyle>{children}</CodeStyle>;
-};
-
-const Anchor: ReactRenderer['link'] = (href, text) => {
-	return <AnchorStyle href={href}>{text}</AnchorStyle>;
-};
-
-const Heading: ReactRenderer['heading'] = (children, level) => {
-	return <HeadingStyle level={level}>{children}</HeadingStyle>;
-};
+interface CodeProps
+	extends React.DetailedHTMLProps<
+		React.HTMLAttributes<HTMLElement>,
+		HTMLElement
+	> {
+	className?: string;
+}
 
 const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 	markdown,
@@ -58,12 +46,47 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 		<Wrapper>
 			<Header {...data} />
 			<Markdown
-				renderer={{
-					blockquote: Blockquote,
-					codespan: CodeSpan,
-					list: List,
-					link: Anchor,
-					heading: Heading,
+				components={{
+					blockquote(props) {
+						return <BlockQuoteStyle {...props} />;
+					},
+					ol(props) {
+						return <OrderedListStyle {...props} />;
+					},
+					ul(props) {
+						return <UnOrderedListStyled {...props} />;
+					},
+					code(props: CodeProps) {
+						const { children, className: lang, ...rest } = props;
+						const match = /language-(\w+)/.exec(lang || '');
+						return match ? (
+							<Lowlight
+								{...rest}
+								value={String(children).replace(/\n$/, '')}
+								language={match[1]}
+							/>
+						) : (
+							<CodeStyle {...rest}>{children}</CodeStyle>
+						);
+					},
+					a(props) {
+						return <AnchorStyle {...props} />;
+					},
+					h1(props) {
+						return <HeadingStyle level={1} {...props} />;
+					},
+					h2(props) {
+						return <HeadingStyle level={2} {...props} />;
+					},
+					h3(props) {
+						return <HeadingStyle level={3} {...props} />;
+					},
+					h4(props) {
+						return <HeadingStyle level={4} {...props} />;
+					},
+					h5(props) {
+						return <HeadingStyle level={5} {...props} />;
+					},
 				}}
 			>
 				{content}
@@ -75,6 +98,7 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 const Wrapper = styled.article({
 	color: theme.colors.contentText,
 	width: '100%',
+	maxWidth: '720px',
 	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'center',

@@ -15,7 +15,7 @@ const Header: FunctionComponent<HeaderProps> = ({
 			<h1>{title}</h1>
 			<div>
 				<Date date={date} />
-				<Categories categories={categories} />
+				<Categories categories={categories} withLink />
 			</div>
 		</Wrapper>
 	);
@@ -50,9 +50,9 @@ const Wrapper = styled.header({
 			color: theme.colors.secondaryText,
 		},
 
-		'& > *:not(:first-of-type)': {
-			borderLeft: `2px solid ${theme.colors.postCardBorder}`,
-			paddingLeft: '8px',
+		'& > *:not(:last-child)': {
+			borderRight: `2px solid ${theme.colors.postCardBorder}`,
+			paddingRight: '8px',
 		},
 	},
 });

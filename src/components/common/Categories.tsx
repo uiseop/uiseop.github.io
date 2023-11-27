@@ -5,17 +5,25 @@ import { Link } from 'react-router-dom';
 
 type CategoriesProps = {
 	categories: string[];
+	withLink?: boolean;
 };
 
-const Categories: FunctionComponent<CategoriesProps> = ({ categories }) => {
+const Categories: FunctionComponent<CategoriesProps> = ({
+	categories,
+	withLink = false,
+}) => {
 	return (
 		<Wrapper>
 			{categories.map((category) => {
 				return (
 					<li key={category}>
-						<Link to={`/posts/${category}`}>
-							{category.toLocaleUpperCase()}
-						</Link>
+						{withLink ? (
+							<Link to={`/posts/${category}`}>
+								{category.toLocaleUpperCase()}
+							</Link>
+						) : (
+							category.toLocaleUpperCase()
+						)}
 					</li>
 				);
 			})}
@@ -32,6 +40,7 @@ const Wrapper = styled.ul({
 	fontSize: '.8rem',
 	fontWeight: 600,
 	boxSizing: 'content-box',
+	zIndex: 1,
 
 	'& li:hover': {
 		position: 'relative',

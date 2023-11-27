@@ -87,7 +87,6 @@ const commonStyle = css`
 		--colors-anchor: rgb(0, 168, 255);
 		--colors-secondary-text: #9e9e9e;
 		--colors-tip-background: #939393;
-		--colors-blockquote-background: #fafbfc2b;
 		--colors-about-link-icon: #a8a8a8;
 	}
 
@@ -121,6 +120,7 @@ const lightStlye = css`
 		--colors-blockquote-border: rgba(255, 92, 0, 0.7);
 		--colors-content-text: #37352f;
 		--colors-about-link-icon-hover: rgba(0, 0, 0, 0.06);
+		--colors-blockquote-background: #f2ffee75;
 	}
 `;
 
@@ -135,6 +135,7 @@ const darkStyle = css`
 		--colors-blockquote-border: #ff5c00;
 		--colors-content-text: #e6e6e6;
 		--colors-about-link-icon-hover: rgba(213, 213, 213, 0.26);
+		--colors-blockquote-background: #fafbfc2b;
 	}
 `;
 
