@@ -1,3 +1,5 @@
+import Categories from '@components/common/Categories';
+import Date from '@components/common/Date';
 import { theme } from '@components/common/theme';
 import { ellipsis } from '@components/styles/ellipsis';
 import styled from '@emotion/styled';
@@ -17,11 +19,8 @@ const PostList = () => {
 						ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout React
 					</PostContet>
 					<PostInfoWrapper>
-						hello wolrd
-						<CategoryWrapper>
-							<li>React</li>
-							<li>Javascript</li>
-						</CategoryWrapper>
+						<Date date="2023-01-21" />
+						<Categories categories={['java', 'react']} />
 					</PostInfoWrapper>
 				</Link>
 			</li>
@@ -73,11 +72,6 @@ const PostInfoWrapper = styled.div({
 	color: theme.colors.aboutLinkIcon,
 	marginTop: '17px',
 	fontSize: '.8rem',
-});
-
-const CategoryWrapper = styled.ul({
-	display: 'flex',
-	gap: '6px',
 });
 
 export default PostList;
