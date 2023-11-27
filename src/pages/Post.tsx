@@ -1,12 +1,14 @@
-import Markdown from 'marked-react';
 import { FunctionComponent } from 'react';
 import markdown from '@static/test.md';
+import MarkdownRednerer from '@components/common/MarkdownRenderer';
+import Header from '@components/common/Header';
 
 const Post: FunctionComponent = () => {
 	return (
-		<div>
-			<Markdown>{markdown}</Markdown>
-		</div>
+		<>
+			<Header />
+			<MarkdownRednerer markdown={markdown} />
+		</>
 	);
 };
 

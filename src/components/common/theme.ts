@@ -13,6 +13,9 @@ type Theme = {
 		tabSelected: string;
 		tabSelectedBackground: string;
 		postCardBorder: string;
+		blockquoteBackground: string;
+		contentText: string;
+		blockquoteBorder: string;
 	};
 };
 
@@ -33,5 +36,8 @@ export const theme: Theme = {
 		tabSelected: cssVar('colors-tab-selected'),
 		tabSelectedBackground: cssVar('colors-tab-selected-background'),
 		postCardBorder: cssVar('colors-post-card-border'),
+		blockquoteBackground: cssVar('colors-blockquote-background'),
+		contentText: cssVar('colors-content-text'),
+		blockquoteBorder: cssVar('colors-blockquote-border'),
 	},
 };

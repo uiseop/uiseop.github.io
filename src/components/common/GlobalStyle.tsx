@@ -89,6 +89,7 @@ const commonStyle = css`
 
 		--colors-about-link-icon-hover: rgba(0, 0, 0, 0.06);
 		--colors-tip-background: #939393;
+		--colors-blockquote-background: #fafbfc2b;
 	}
 
 	/* 스크롤바의 폭 너비 */
@@ -115,6 +116,8 @@ const lightStlye = css`
 		--colors-tab-selected: #0d0c22;
 		--colors-tab-selected-background: rgba(13, 12, 34, 0.05);
 		--colors-post-card-border: rgba(0, 0, 0, 0.12);
+		--colors-blockquote-border: rgba(255, 92, 0, 0.7);
+		--colors-content-text: #37352f;
 	}
 `;
 
@@ -127,6 +130,8 @@ const darkStyle = css`
 		--colors-tab-selected: #acbac7;
 		--colors-tab-selected-background: #373e47;
 		--colors-post-card-border: #363f47;
+		--colors-blockquote-border: #ff5c00;
+		--colors-content-text: #e6e6e6;
 	}
 `;
 
