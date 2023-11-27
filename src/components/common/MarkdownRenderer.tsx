@@ -14,6 +14,7 @@ type CustomGrayMatterFile = GrayMatterFile<
 	MarkdownRednererProps['markdown']
 > & {
 	data: {
+		title: string;
 		date: string;
 		categories: string[];
 		[key: string]: any;
