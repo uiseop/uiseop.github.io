@@ -2,12 +2,22 @@ import Markdown from 'marked-react';
 import { FunctionComponent, ReactNode } from 'react';
 import { theme } from './theme';
 import styled from '@emotion/styled';
-import matter from 'gray-matter';
-import dayjs from 'dayjs';
+import matter, { GrayMatterFile } from 'gray-matter';
 import 'dayjs/locale/en';
+import Date from './Date';
 
 type MarkdownRednererProps = {
 	markdown: '*.md';
+};
+
+type CustomGrayMatterFile = GrayMatterFile<
+	MarkdownRednererProps['markdown']
+> & {
+	data: {
+		date: string;
+		categories: string[];
+		[key: string]: any;
+	};
 };
 
 const Blockquote = (children: ReactNode) => {
@@ -20,9 +30,7 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 	const {
 		content,
 		data: { title, date, categories },
-	} = matter(markdown);
-
-	const formattedDate = dayjs(date).locale('en').format('MMMM DD, YYYY');
+	} = matter(markdown) as CustomGrayMatterFile;
 
 	const category = categories.join(' ');
 
@@ -31,7 +39,7 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 			<Header>
 				<h1>{title}</h1>
 				<div>
-					{formattedDate} |&nbsp;<span>{category}</span>
+					<Date date={date} /> |&nbsp;<span>{category}</span>
 				</div>
 			</Header>
 			<Markdown
