@@ -1,4 +1,5 @@
 import { FunctionComponent } from 'react';
+import { animated, useTransition } from 'react-spring';
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
@@ -14,12 +15,45 @@ const ThemeToggler: FunctionComponent = () => {
 		setTheme(nextTheme);
 	};
 
+	const isDark = theme === 'dark';
+
+	const transitions = useTransition(isDark, {
+		initial: {
+			transform: 'scale(1) rotate(0deg)',
+			opacity: 1,
+		},
+		from: {
+			transform: 'scale(0) rotate(-180deg)',
+			opacity: 0,
+		},
+		enter: {
+			transform: 'scale(1) rotate(0deg)',
+			opacity: 1,
+		},
+		leave: {
+			transform: 'scale(0) rotate(180deg)',
+			opacity: 0,
+		},
+
+		reverse: true,
+	});
+
 	return (
 		<Button onClick={toggleTheme}>
-			{theme === 'light' ? (
-				<FontAwesomeIcon icon={faMoon} />
-			) : (
-				<FontAwesomeIcon icon={faSun} />
+			{transitions((style, item) =>
+				item ? (
+					<Positioner>
+						<AnimatedWrapper style={style}>
+							<FontAwesomeIcon icon={faMoon} />
+						</AnimatedWrapper>
+					</Positioner>
+				) : (
+					<Positioner>
+						<AnimatedWrapper style={style}>
+							<FontAwesomeIcon icon={faSun} />
+						</AnimatedWrapper>
+					</Positioner>
+				),
 			)}
 		</Button>
 	);
@@ -38,5 +72,14 @@ const Button = styled.button({
 	backgroundColor: theme.colors.background2,
 	cursor: 'pointer',
 });
+
+const Positioner = styled.div({
+	position: 'absolute',
+	top: '50%',
+	left: '50%',
+	transform: 'translate(-50%, -50%)',
+});
+
+const AnimatedWrapper = animated('div');
 
 export default ThemeToggler;

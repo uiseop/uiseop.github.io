@@ -5,7 +5,7 @@ author: soobing
 categories: [react, node, english]
 ---
 
-> 원글: https://itnext.io/decoupling-ui-and-logic-in-react-a-clean-code-approach-with-headless-components-82e46b5820c
+> 원글: [https://itnext.io/decoupling-ui-and-logic-in-react-a-clean-code-approach-with-headless-components-82e46b5820c](https://itnext.io/decoupling-ui-and-logic-in-react-a-clean-code-approach-with-headless-components-82e46b5820c)
 
 프런트엔드 개발 영역에서는 용어와 패러다임이 때로는 이해하기 어려울 수 있으며 '헤드리스 UI' 또는 '헤드리스 컴포넌트'도 이 범주에 속할 수 있습니다. 이러한 용어들이 무엇을 의미하는지 궁금해서 고개를 갸웃거리고, 혼자만 그런 것이 아닙니다. 사실, 혼란스러운 `이름`에도 불구하고 이러한 개념들은 복잡한 사용자 인터페이스 관리를 상당히 단순화할 수 있는 매력적인 전략입니다.
 
