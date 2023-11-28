@@ -3,13 +3,16 @@ import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
 import GlobalStyle from '@components/common/GlobalStyle';
 import ThemeToggler from '@components/common/ThemeToggler';
+import ThemeProvider from '@components/common/ThemeProvider';
 
 const App: FunctionComponent = () => {
 	return (
 		<React.StrictMode>
-			<GlobalStyle />
-			<RouterProvider router={router} />
-			<ThemeToggler />
+			<ThemeProvider>
+				<GlobalStyle />
+				<RouterProvider router={router} />
+				<ThemeToggler />
+			</ThemeProvider>
 		</React.StrictMode>
 	);
 };

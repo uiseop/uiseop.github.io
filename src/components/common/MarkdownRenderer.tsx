@@ -5,9 +5,9 @@ import styled from '@emotion/styled';
 import matter, { GrayMatterFile } from 'gray-matter';
 import 'dayjs/locale/en';
 import Header from '@components/Posts/Header';
-import Lowlight from 'react-lowlight';
-import 'react-lowlight/common';
-import 'highlight.js/styles/docco.css';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { dark, prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import useTheme from '@components/hooks/useTheme';
 
 type MarkdownRednererProps = {
 	markdown: '*.md';
@@ -41,6 +41,7 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 	markdown,
 }) => {
 	const { content, data } = matter(markdown) as CustomGrayMatterFile;
+	const { theme } = useTheme();
 
 	return (
 		<Wrapper>
@@ -60,11 +61,12 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 						const { children, className: lang, ...rest } = props;
 						const match = /language-(\w+)/.exec(lang || '');
 						return match ? (
-							<Lowlight
-								{...rest}
-								value={String(children).replace(/\n$/, '')}
+							<SyntaxHighlighter
+								style={theme === 'light' ? prism : dark}
 								language={match[1]}
-							/>
+							>
+								{String(children).replace(/\n$/, '')}
+							</SyntaxHighlighter>
 						) : (
 							<CodeStyle {...rest}>{children}</CodeStyle>
 						);
@@ -105,6 +107,10 @@ const Wrapper = styled.article({
 	alignItems: 'center',
 	gap: '24px',
 	lineHeight: '1.6',
+
+	pre: {
+		maxWidth: '100%',
+	},
 });
 
 const BlockQuoteStyle = styled.blockquote({

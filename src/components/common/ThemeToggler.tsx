@@ -1,22 +1,19 @@
-import { FunctionComponent, useEffect, useState } from 'react';
+import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { theme } from './theme';
-
-type Theme = 'light' | 'dark';
+import useTheme from '@components/hooks/useTheme';
+import { ThemeType } from './ThemeProvider';
 
 const ThemeToggler: FunctionComponent = () => {
-	const [theme, setTheme] = useState<Theme>('light');
-	const nextTheme: Theme = theme === 'light' ? 'dark' : 'light';
-
-	useEffect(() => {
-		document.body.dataset.theme = theme;
-	}, [theme]);
+	const { theme, setTheme } = useTheme();
+	const nextTheme: ThemeType = theme === 'light' ? 'dark' : 'light';
 
 	const toggleTheme = () => {
 		setTheme(nextTheme);
 	};
+
 	return (
 		<Button onClick={toggleTheme}>
 			{theme === 'light' ? (
