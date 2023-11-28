@@ -6,8 +6,6 @@ import matter, { GrayMatterFile } from 'gray-matter';
 import 'dayjs/locale/en';
 import Header from '@components/Posts/Header';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { dark, prism } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import useTheme from '@components/hooks/useTheme';
 
 type MarkdownRednererProps = {
 	markdown: '*.md';
@@ -41,7 +39,6 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 	markdown,
 }) => {
 	const { content, data } = matter(markdown) as CustomGrayMatterFile;
-	const { theme } = useTheme();
 
 	return (
 		<Wrapper>
@@ -62,7 +59,8 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 						const match = /language-(\w+)/.exec(lang || '');
 						return match ? (
 							<SyntaxHighlighter
-								style={theme === 'light' ? prism : dark}
+								style={{}}
+								useInlineStyles={false}
 								language={match[1]}
 							>
 								{String(children).replace(/\n$/, '')}
@@ -108,8 +106,9 @@ const Wrapper = styled.article({
 	gap: '24px',
 	lineHeight: '1.6',
 
-	pre: {
+	'pre, code': {
 		maxWidth: '100%',
+		overflow: 'auto',
 	},
 });
 
