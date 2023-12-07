@@ -6,11 +6,7 @@ import matter, { GrayMatterFile } from 'gray-matter';
 import 'dayjs/locale/en';
 import Header from '@components/Posts/Header';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCopy } from '@fortawesome/free-regular-svg-icons';
-import { blind } from '@components/styles/blind';
-import { IconLookup } from '@fortawesome/free-brands-svg-icons';
-import Tip from '@components/styles/components/atom/Tip';
+import PasterButton from './PasteButton';
 
 type MarkdownRednererProps = {
 	markdown: '*.md';
@@ -62,13 +58,12 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 					code(props: CodeProps) {
 						const { children, className: lang, ...rest } = props;
 						const match = /language-(\w+)/.exec(lang || '');
+						const code = String(children).replace(/\n$/, '');
+
 						return match ? (
 							<>
 								<PasteWrapper>
-									<PasteButton>
-										<FontAwesomeIcon icon={faCopy as IconLookup} height={30} />
-										<Tip>복사하기</Tip>
-									</PasteButton>
+									<PasterButton pasteWord={code} />
 								</PasteWrapper>
 								<CustomSyntaxHighligter
 									style={{}}
@@ -76,7 +71,7 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 									language={match[1]}
 									wrapLongLines={true}
 								>
-									{String(children).replace(/\n$/, '')}
+									{code}
 								</CustomSyntaxHighligter>
 							</>
 						) : (
@@ -141,31 +136,6 @@ const CustomSyntaxHighligter = styled(SyntaxHighlighter)({
 		width: '12px',
 	},
 });
-
-const PasteButton = styled.button(
-	{
-		position: 'absolute',
-		zIndex: 1,
-		right: 0,
-		width: '30px',
-		height: '30px',
-		backgroundColor: 'transparent',
-		border: 'none',
-		color: theme.colors.paste,
-		transition: 'color 0.5s',
-		cursor: 'pointer',
-
-		'&:hover': {
-			color: 'white',
-
-			'& div': {
-				visibility: 'visible',
-				opacity: 1,
-			},
-		},
-	},
-	{ blind },
-);
 
 const Wrapper = styled.article({
 	color: theme.colors.contentText,
