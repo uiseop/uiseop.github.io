@@ -6,6 +6,11 @@ import matter, { GrayMatterFile } from 'gray-matter';
 import 'dayjs/locale/en';
 import Header from '@components/Posts/Header';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCopy } from '@fortawesome/free-regular-svg-icons';
+import { blind } from '@components/styles/blind';
+import { IconLookup } from '@fortawesome/free-brands-svg-icons';
+import Tip from '@components/styles/components/atom/Tip';
 
 type MarkdownRednererProps = {
 	markdown: '*.md';
@@ -58,13 +63,22 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 						const { children, className: lang, ...rest } = props;
 						const match = /language-(\w+)/.exec(lang || '');
 						return match ? (
-							<SyntaxHighlighter
-								style={{}}
-								useInlineStyles={false}
-								language={match[1]}
-							>
-								{String(children).replace(/\n$/, '')}
-							</SyntaxHighlighter>
+							<>
+								<PasteWrapper>
+									<PasteButton>
+										<FontAwesomeIcon icon={faCopy as IconLookup} height={30} />
+										<Tip>복사하기</Tip>
+									</PasteButton>
+								</PasteWrapper>
+								<CustomSyntaxHighligter
+									style={{}}
+									useInlineStyles={false}
+									language={match[1]}
+									wrapLongLines={true}
+								>
+									{String(children).replace(/\n$/, '')}
+								</CustomSyntaxHighligter>
+							</>
 						) : (
 							<CodeStyle {...rest}>{children}</CodeStyle>
 						);
@@ -95,6 +109,64 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 	);
 };
 
+const PasteWrapper = styled.div({
+	position: 'relative',
+});
+
+const CustomSyntaxHighligter = styled(SyntaxHighlighter)({
+	position: 'relative',
+	padding: '55px 25px 25px',
+	fontWeight: 500,
+	backgroundColor: 'transparent',
+
+	'&::before': {
+		content: '""',
+		position: 'absolute',
+		height: '30px',
+		left: 0,
+		top: 0,
+		width: '100%',
+		backgroundColor: theme.colors.background2,
+	},
+
+	'&::after': {
+		content: '""',
+		position: 'absolute',
+		background: '#fc625d',
+		borderRadius: '50%',
+		boxShadow: '20px 0 #fdbc40, 40px 0 #35cd4b',
+		height: '12px',
+		left: '12px',
+		top: '9px',
+		width: '12px',
+	},
+});
+
+const PasteButton = styled.button(
+	{
+		position: 'absolute',
+		zIndex: 1,
+		right: 0,
+		width: '30px',
+		height: '30px',
+		backgroundColor: 'transparent',
+		border: 'none',
+		color: theme.colors.paste,
+		transition: 'color 0.5s',
+		cursor: 'pointer',
+
+		'&:hover': {
+			color: 'white',
+
+			'& div': {
+				visibility: 'visible',
+				opacity: 1,
+			},
+		},
+	},
+	{ blind },
+);
+
 const Wrapper = styled.article({
 	color: theme.colors.contentText,
 	width: '100%',
@@ -105,11 +177,6 @@ const Wrapper = styled.article({
 	alignItems: 'center',
 	gap: '24px',
 	lineHeight: '1.6',
-
-	'pre, code': {
-		maxWidth: '100%',
-		overflow: 'auto',
-	},
 });
 
 const BlockQuoteStyle = styled.blockquote({

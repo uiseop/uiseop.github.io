@@ -474,6 +474,8 @@ const commonStyle = css`
 		--colors-secondary-text: #9e9e9e;
 		--colors-tip-background: #939393;
 		--colors-about-link-icon: #a8a8a8;
+		--colors-paste: #acbac7a8;
+		--colors-paste-hover: #acbac7;
 	}
 
 	html {
@@ -492,12 +494,6 @@ const commonStyle = css`
 
 	::-webkit-scrollbar-track {
 		background: #ddd; /*스크롤바 뒷 배경 색상*/
-	}
-
-	pre {
-		padding: 25px;
-		border-radius: 18px;
-		font-weight: 500;
 	}
 `;
 

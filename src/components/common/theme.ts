@@ -16,28 +16,32 @@ type Theme = {
 		blockquoteBackground: string;
 		contentText: string;
 		blockquoteBorder: string;
+		paste: string;
+		pasteHover: string;
 	};
 };
 
-const cssVar = (str: string) => `var(--${str})`;
+const cssVar = (str: string) => `var(--colors-${str})`;
 
 export const theme: Theme = {
 	colors: {
-		text: cssVar('colors-text'),
-		primary: cssVar('colors-primary'),
-		background: cssVar('colors-background'),
-		background2: cssVar('colors-background2'),
-		anchor: cssVar('colors-anchor'),
-		secondaryText: cssVar('colors-secondary-text'),
-		aboutLinkIcon: cssVar('colors-about-link-icon'),
-		aboutLinkIconHover: cssVar('colors-about-link-icon-hover'),
-		tipBackground: cssVar('colors-tip-background'),
-		tabText: cssVar('colors-tab-text'),
-		tabSelected: cssVar('colors-tab-selected'),
-		tabSelectedBackground: cssVar('colors-tab-selected-background'),
-		postCardBorder: cssVar('colors-post-card-border'),
-		blockquoteBackground: cssVar('colors-blockquote-background'),
-		contentText: cssVar('colors-content-text'),
-		blockquoteBorder: cssVar('colors-blockquote-border'),
+		text: cssVar('text'),
+		primary: cssVar('primary'),
+		background: cssVar('background'),
+		background2: cssVar('background2'),
+		anchor: cssVar('anchor'),
+		secondaryText: cssVar('secondary-text'),
+		aboutLinkIcon: cssVar('about-link-icon'),
+		aboutLinkIconHover: cssVar('about-link-icon-hover'),
+		tipBackground: cssVar('tip-background'),
+		tabText: cssVar('tab-text'),
+		tabSelected: cssVar('tab-selected'),
+		tabSelectedBackground: cssVar('tab-selected-background'),
+		postCardBorder: cssVar('post-card-border'),
+		blockquoteBackground: cssVar('blockquote-background'),
+		contentText: cssVar('content-text'),
+		blockquoteBorder: cssVar('blockquote-border'),
+		paste: cssVar('paste'),
+		pasteHover: cssVar('paste-hover'),
 	},
 };
