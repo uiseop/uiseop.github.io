@@ -5,7 +5,7 @@ import { FunctionComponent } from 'react';
 import { theme } from '@components/common/theme';
 import { blind } from '@components/styles/blind';
 import styled from '@emotion/styled';
-import Tip from '@components/styles/components/atom/Tip';
+import Tip from '@components/styles/components/Tip';
 
 const SocialLinks: FunctionComponent = () => {
 	return (

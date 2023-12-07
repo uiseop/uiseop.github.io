@@ -2,7 +2,7 @@ import { theme } from './theme';
 import styled from '@emotion/styled';
 import { IconLookup, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Tip from '@components/styles/components/atom/Tip';
+import Tip from '@components/styles/components/Tip';
 import { blind } from '@components/styles/blind';
 
 type PasteButtonProps = {
