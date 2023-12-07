@@ -10,12 +10,3 @@ declare module 'gray-matter' {
 		};
 	}
 }
-
-// interface CustomMatterFile
-// 	extends matter.GrayMatterFile<MarkdownRednererProps['markdown']> {
-// 	data: {
-// 		date: string;
-// 		categories: string[];
-// 		[key: string]: any;
-// 	};
-// }
