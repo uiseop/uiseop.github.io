@@ -69,7 +69,8 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 									style={{}}
 									useInlineStyles={false}
 									language={match[1]}
-									wrapLongLines={true}
+									wrapLongLines
+									customStyle={{ whiteSpace: 'pre-wrap' }}
 								>
 									{code}
 								</CustomSyntaxHighligter>
