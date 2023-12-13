@@ -44,7 +44,7 @@ const prism = css`
 	}
 	.token.selector,
 	.token.attr-name,
-	.token.attr-value .punctuation:first-child,
+	.token.attr-value .punctuation:first-of-type,
 	.token.keyword,
 	.token.regex,
 	.token.important {
@@ -484,7 +484,7 @@ const commonStyle = css`
 
 	/* 스크롤바의 폭 너비 */
 	::-webkit-scrollbar {
-		width: 10px;
+		width: 5px;
 	}
 
 	::-webkit-scrollbar-thumb {

@@ -27,6 +27,7 @@ export default defineConfig({
 			{ find: '@pages', replacement: '/src/pages' },
 			{ find: '@utils', replacement: '/src/utils' },
 			{ find: '@static', replacement: '/src/static' },
+			{ find: '@atom', replacement: '/src/atom' },
 		],
 	},
 	optimizeDeps: {
