@@ -4,7 +4,7 @@ import { router } from './router';
 import GlobalStyle from '@components/common/GlobalStyle';
 import ThemeToggler from '@components/common/ThemeToggler';
 import ThemeProvider from '@components/common/ThemeProvider';
-import ToastContainer from '@components/common/ToastContainer';
+import ToastContainer from '@components/common/Toast/ToastContainer';
 
 const App: FunctionComponent = () => {
 	return (

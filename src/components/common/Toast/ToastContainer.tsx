@@ -3,13 +3,14 @@ import { useEffect, useRef, useState } from 'react';
 import {
 	Id,
 	NotValidatedToastProps,
-	Toast,
+	Toast as ToastType,
 	ToastContainerProps,
 	ToastContent,
 	ToastProps,
 } from 'types';
-import TToast from './Toast';
+import Toast from './Toast';
 import ToastModal from './ToastModal';
+import React from 'react';
 
 interface QueuedToast {
 	toastContent: ToastContent;
@@ -23,16 +24,14 @@ export interface ContainerInstance {
 	props: ToastContainerProps;
 	containerId?: Id | null;
 	isToastActive: (toastId: Id) => boolean;
-	getToast: (id: Id) => Toast | null | undefined;
+	getToast: (id: Id) => ToastType | null | undefined;
 	queue: QueuedToast[];
 	count: number;
 }
 
-// const toastToRender = new Map<Id, Toast>();
-
 const ToastContainer = () => {
 	const [, setToastIds] = useState<Id[]>([]);
-	const toastToRender = useRef(new Map<Id, Toast>()).current;
+	const toastToRender = useRef(new Map<Id, ToastType>()).current;
 
 	useEffect(() => {
 		eventManager.on(Event.Show, buildToast).on(Event.Clear, clearToast);
@@ -81,7 +80,7 @@ const ToastContainer = () => {
 
 		setTimeout(() => {
 			closeToast();
-		}, delay + 1000);
+		}, delay);
 	}
 
 	return (
@@ -89,9 +88,9 @@ const ToastContainer = () => {
 			{Array.from(toastToRender.values()).map(
 				({ content, props: toastProps }) => {
 					return (
-						<TToast {...toastProps} key={`toast-${toastProps.toastId}`}>
+						<Toast {...toastProps} key={`toast-${toastProps.toastId}`}>
 							{content}
-						</TToast>
+						</Toast>
 					);
 				},
 			)}

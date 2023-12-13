@@ -6,7 +6,7 @@ import {
 	NotValidatedToastProps,
 	ToastItem,
 } from '../types';
-import { ContainerInstance } from '@components/common/ToastContainer';
+import { ContainerInstance } from '@components/common/Toast/ToastContainer';
 
 export const enum Event {
 	Show,

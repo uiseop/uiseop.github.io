@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { ReactNode } from 'react';
 import { ToastProps } from 'types';
 
-const TToast = ({ children, delay = 2000 }: ToastProps) => {
+const Toast = ({ children, delay = 2000 }: ToastProps) => {
 	return <Wrapper delay={delay}>{children as ReactNode}</Wrapper>;
 };
 
@@ -34,4 +34,4 @@ const Wrapper = styled.div<{ delay: number }>(({ delay }) => ({
 	whiteSpace: 'pre',
 }));
 
-export default TToast;
+export default Toast;
