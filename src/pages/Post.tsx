@@ -8,7 +8,6 @@ const Post: FunctionComponent = () => {
 
 	if (!state) {
 		state = { markdown: files[parseInt(pathname.split('/')[2])].file };
-		console.log(state);
 	}
 
 	return (
