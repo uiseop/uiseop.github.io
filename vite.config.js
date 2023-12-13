@@ -28,6 +28,7 @@ export default defineConfig({
 			{ find: '@utils', replacement: '/src/utils' },
 			{ find: '@static', replacement: '/src/static' },
 			{ find: '@atom', replacement: '/src/atom' },
+			{ find: '@core', replacement: '/src/core' },
 		],
 	},
 	optimizeDeps: {

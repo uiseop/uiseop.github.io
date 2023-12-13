@@ -4,32 +4,26 @@ import { IconLookup, faCopy } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Tip from '@components/styles/components/Tip';
 import { blind } from '@components/styles/blind';
-import useToastModal from '@components/hooks/useToastModal';
 
-type PasteButtonProps = {
-	pasteWord: string;
+type ButtonProps = {
+	content: string;
+	onClick: () => void;
 };
 
-const PASTE_MESSAEG = '복사 완료!';
-
-const PasterButton = ({ pasteWord }: PasteButtonProps) => {
-	const { setToastMessage } = useToastModal();
-
-	const onClickHandler = () => {
-		// console.log(pasteWord);
-		setToastMessage(PASTE_MESSAEG);
+const Button = ({ content, onClick }: ButtonProps) => {
+	const handleClick = () => {
+		onClick();
 	};
 
 	return (
-		<Button onClick={onClickHandler}>
+		<CustonButton onClick={handleClick}>
 			<FontAwesomeIcon icon={faCopy as IconLookup} height={30} />
-			<Tip>복사하기</Tip>
-		</Button>
-		// {isVisible && Modla}
+			<Tip>{content}</Tip>
+		</CustonButton>
 	);
 };
 
-const Button = styled.button(
+const CustonButton = styled.button(
 	{
 		position: 'absolute',
 		zIndex: 1,
@@ -54,4 +48,4 @@ const Button = styled.button(
 	{ blind },
 );
 
-export default PasterButton;
+export default Button;

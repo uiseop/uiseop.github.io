@@ -6,7 +6,8 @@ import matter, { GrayMatterFile } from 'gray-matter';
 import 'dayjs/locale/en';
 import Header from '@components/Posts/Header';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import PasterButton from './PasteButton';
+import Button from './Button';
+import toast from '@utils/toast';
 
 type MarkdownRednererProps = {
 	markdown: '*.md';
@@ -41,6 +42,22 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 }) => {
 	const { content, data } = matter(markdown) as CustomGrayMatterFile;
 
+	const handleClick = (code: string) => {
+		function copyToClipboard(code: string) {
+			navigator.clipboard
+				.writeText(code)
+				.then(() => {
+					toast('복사 완료', { delay: 2000 });
+				})
+				.catch((err) => {
+					toast('복사 실패.. 다시 시도해주세요', { delay: 2000 });
+					console.error(err);
+				});
+		}
+
+		copyToClipboard(code);
+	};
+
 	return (
 		<Wrapper>
 			<Header {...data} />
@@ -63,7 +80,10 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 						return match ? (
 							<>
 								<PasteWrapper>
-									<PasterButton pasteWord={code} />
+									<Button
+										content="복사하기"
+										onClick={() => handleClick(code)}
+									/>
 								</PasteWrapper>
 								<CustomSyntaxHighligter
 									style={{}}
