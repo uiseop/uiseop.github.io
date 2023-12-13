@@ -10,13 +10,13 @@ import { Categories, Date } from '@components/common';
 export const PostList = () => {
 	return (
 		<Wrapper>
-			{files.map((file, idx) => {
+			{files.map(({ file, key }) => {
 				const { data, excerpt } = matter(file, {
 					excerpt: true,
 				}) as CustomGrayMatterFile;
 				return (
-					<li key={idx}>
-						<Link to={`/posts/${data.title}`} state={{ markdown: file, data }}>
+					<li key={key}>
+						<Link to={`/posts/${key}`} state={{ markdown: file, data }}>
 							<PostTitle>{data.title}</PostTitle>
 							<PostContet>{excerpt}</PostContet>
 							<PostInfoWrapper>
