@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
-import Header from '@components/common/Header';
 import styled from '@emotion/styled';
 import { theme } from '@components/common/theme';
 import { Navigationbar, PostList } from '@components/Posts';
+import { Header } from '@components/common/Header';
 
 const Posts: FunctionComponent = () => {
 	return (

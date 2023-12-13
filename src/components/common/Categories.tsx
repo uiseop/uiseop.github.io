@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { FunctionComponent } from 'react';
 import { theme } from './theme';
 import { Link } from 'react-router-dom';
 
@@ -8,10 +7,10 @@ type CategoriesProps = {
 	withLink?: boolean;
 };
 
-const Categories: FunctionComponent<CategoriesProps> = ({
+export const Categories = ({
 	categories,
 	withLink = false,
-}) => {
+}: CategoriesProps) => {
 	return (
 		<Wrapper>
 			{categories.map((category) => {
@@ -55,5 +54,3 @@ const Wrapper = styled.ul({
 		},
 	},
 });
-
-export default Categories;

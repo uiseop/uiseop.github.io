@@ -10,7 +10,7 @@ type ButtonProps = {
 	onClick: () => void;
 };
 
-const Button = ({ content, onClick }: ButtonProps) => {
+export const Button = ({ content, onClick }: ButtonProps) => {
 	const handleClick = () => {
 		onClick();
 	};
@@ -47,5 +47,3 @@ const CustonButton = styled.button(
 	},
 	{ blind },
 );
-
-export default Button;

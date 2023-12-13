@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
-import Header from '@components/common/Header';
 import { theme } from '@components/common/theme';
-import { Description, SocialLinks } from '@components/About/index';
+import { Description, SocialLinks } from '@components/About';
+import { Header } from '@components/common';
 
 const About: FunctionComponent = () => {
 	return (

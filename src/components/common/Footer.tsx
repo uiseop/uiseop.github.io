@@ -1,8 +1,7 @@
-import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import { theme } from './theme';
 
-const Footer: FunctionComponent = () => {
+export const Footer = () => {
 	return (
 		<Wrapper>
 			© 2023&nbsp;
@@ -30,5 +29,3 @@ const Wrapper = styled.footer({
 const Anchor = styled.a({
 	color: theme.colors.anchor,
 });
-
-export default Footer;

@@ -2,8 +2,8 @@ import { RouteObject, createBrowserRouter } from 'react-router-dom';
 import Main from '@pages/Main';
 import About from './pages/About';
 import Posts from './pages/Posts';
-import Template from './components/common/Template';
 import Post from '@pages/Post';
+import { Template } from '@components/common';
 
 const postRouter: RouteObject = {
 	path: 'posts',

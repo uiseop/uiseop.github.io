@@ -1,13 +1,12 @@
-import { FunctionComponent } from 'react';
 import { animated, useTransition } from 'react-spring';
 import styled from '@emotion/styled';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { theme } from './theme';
-import useTheme from '@components/hooks/useTheme';
 import { ThemeType } from './ThemeProvider';
+import { useTheme } from '@components/hooks';
 
-const ThemeToggler: FunctionComponent = () => {
+export const ThemeToggler = () => {
 	const { theme, setTheme } = useTheme();
 	const nextTheme: ThemeType = theme === 'light' ? 'dark' : 'light';
 
@@ -81,5 +80,3 @@ const Positioner = styled.div({
 });
 
 const AnimatedWrapper = animated('div');
-
-export default ThemeToggler;

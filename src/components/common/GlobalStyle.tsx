@@ -1,7 +1,7 @@
 import { Global, css } from '@emotion/react';
 import { FunctionComponent } from 'react';
 
-const GlobalStyle: FunctionComponent = () => {
+export const GlobalStyle: FunctionComponent = () => {
 	return <Global styles={defaultStyle} />;
 };
 
@@ -535,5 +535,3 @@ const defaultStyle = css`
 	${lightStlye};
 	${darkStyle};
 `;
-
-export default GlobalStyle;

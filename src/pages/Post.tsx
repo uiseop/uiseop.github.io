@@ -1,13 +1,13 @@
 import { FunctionComponent } from 'react';
-import markdown from '@static/test.md';
-import MarkdownRednerer from '@components/common/MarkdownRenderer';
-import Header from '@components/common/Header';
+import { useLocation } from 'react-router-dom';
+import { Header, MarkdownRednerer } from '@components/common';
 
 const Post: FunctionComponent = () => {
+	const { state } = useLocation();
 	return (
 		<>
 			<Header />
-			<MarkdownRednerer markdown={markdown} />
+			<MarkdownRednerer markdown={state.markdown} />
 		</>
 	);
 };

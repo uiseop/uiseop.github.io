@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
-import { FunctionComponent } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { theme } from './theme';
 
-const Header: FunctionComponent = () => {
+export const Header = () => {
 	return (
 		<Wrapper>
 			<ContentWrapper>
@@ -131,5 +130,3 @@ const StyledLink = styled(NavLink)({
 		},
 	},
 });
-
-export default Header;

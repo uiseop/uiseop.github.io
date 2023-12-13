@@ -1,13 +1,13 @@
 import Markdown from 'react-markdown';
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
 import matter, { GrayMatterFile } from 'gray-matter';
 import 'dayjs/locale/en';
 import { theme } from './theme';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import Button from './Button';
 import { copyToClipboard } from '@utils/index';
 import { Header } from '@components/Posts';
+import { Button } from '.';
 
 type MarkdownRednererProps = {
 	markdown: '*.md';
@@ -37,9 +37,7 @@ interface CodeProps
 	className?: string;
 }
 
-const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
-	markdown,
-}) => {
+export const MarkdownRednerer = ({ markdown }: MarkdownRednererProps) => {
 	const { content, data } = matter(markdown) as CustomGrayMatterFile;
 
 	const handleClick = (code: string) => {
@@ -219,5 +217,3 @@ const HeadingStyle = styled.hgroup<HeadingProps>(
 		fontSize: getHeadingStyle(level),
 	}),
 );
-
-export default MarkdownRednerer;

@@ -1,9 +1,8 @@
 import styled from '@emotion/styled';
 import { FunctionComponent } from 'react';
-import Date from '@components/common/Date';
-import Categories from '@components/common/Categories';
 import { HeaderProps } from '@components/common/MarkdownRenderer';
 import { theme } from '@components/common/theme';
+import { Categories, Date } from '@components/common';
 
 export const Header: FunctionComponent<HeaderProps> = ({
 	title,

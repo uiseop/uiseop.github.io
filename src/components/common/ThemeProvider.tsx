@@ -17,7 +17,7 @@ interface ThemeContextType {
 
 export const ThemeContext = createContext<ThemeContextType | null>(null);
 
-const ThemeProvider = ({ children }: { children: ReactNode }) => {
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 	const [theme, setTheme] = useState<ThemeType>('light');
 
 	useLayoutEffect(() => {
@@ -36,5 +36,3 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
 		<ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
 	);
 };
-
-export default ThemeProvider;

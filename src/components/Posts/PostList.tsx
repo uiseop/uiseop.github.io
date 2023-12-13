@@ -1,5 +1,3 @@
-import Categories from '@components/common/Categories';
-import Date from '@components/common/Date';
 import { theme } from '@components/common/theme';
 import { ellipsis } from '@components/styles/ellipsis';
 import styled from '@emotion/styled';
@@ -7,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { files } from '@static/index';
 import matter from 'gray-matter';
 import { CustomGrayMatterFile } from '@components/common/MarkdownRenderer';
+import { Categories, Date } from '@components/common';
 
 export const PostList = () => {
 	return (
@@ -17,7 +16,7 @@ export const PostList = () => {
 				}) as CustomGrayMatterFile;
 				return (
 					<li key={idx}>
-						<Link to={`/posts/${data.title}`}>
+						<Link to={`/posts/${data.title}`} state={{ markdown: file, data }}>
 							<PostTitle>{data.title}</PostTitle>
 							<PostContet>{excerpt}</PostContet>
 							<PostInfoWrapper>
