@@ -21,7 +21,7 @@ export type HeaderProps = {
 	categories: string[];
 };
 
-type CustomGrayMatterFile = GrayMatterFile<
+export type CustomGrayMatterFile = GrayMatterFile<
 	MarkdownRednererProps['markdown']
 > & {
 	data: HeaderProps & {

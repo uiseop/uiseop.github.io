@@ -4,29 +4,30 @@ import { theme } from '@components/common/theme';
 import { ellipsis } from '@components/styles/ellipsis';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { files } from '@static/index';
+import matter from 'gray-matter';
+import { CustomGrayMatterFile } from '@components/common/MarkdownRenderer';
 
 export const PostList = () => {
 	return (
 		<Wrapper>
-			<li>
-				<Link to="/posts/1234">
-					<PostTitle>About React</PostTitle>
-					<PostContet>
-						About ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout
-						ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout
-						ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout
-						ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout
-						ReactAbout ReactAbout ReactAbout ReactAbout ReactAbout React
-					</PostContet>
-					<PostInfoWrapper>
-						<Date date="2023-01-21" />
-						<Categories categories={['java', 'react']} />
-					</PostInfoWrapper>
-				</Link>
-			</li>
-			<li>
-				<Link to="/posts">About React</Link>
-			</li>
+			{files.map((file, idx) => {
+				const { data, excerpt } = matter(file, {
+					excerpt: true,
+				}) as CustomGrayMatterFile;
+				return (
+					<li key={idx}>
+						<Link to={`/posts/${data.title}`}>
+							<PostTitle>{data.title}</PostTitle>
+							<PostContet>{excerpt}</PostContet>
+							<PostInfoWrapper>
+								<Date date={data.date} />
+								<Categories categories={data.categories} />
+							</PostInfoWrapper>
+						</Link>
+					</li>
+				);
+			})}
 		</Wrapper>
 	);
 };

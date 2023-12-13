@@ -1,7 +1,7 @@
 ---
 title: '(번역) React에서 UI와 로직 분리하기:헤드리스 컴포넌트를 사용한 클린 코드 접근법'
 date: '2023-09-13 00:00:00'
-author: uiseop
+author: soobing
 categories: [react, node, english]
 ---
 
