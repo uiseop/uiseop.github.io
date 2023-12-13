@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import { ReactNode } from 'react';
 import { ToastProps } from 'types';
 
-const Toast = ({ children, delay = 2000 }: ToastProps) => {
+export const Toast = ({ children, delay = 2000 }: ToastProps) => {
 	return <Wrapper delay={delay}>{children as ReactNode}</Wrapper>;
 };
 
@@ -33,5 +33,3 @@ const Wrapper = styled.div<{ delay: number }>(({ delay }) => ({
 	animation: `${fadeOut} ${delay}ms cubic-bezier(0.18, 0.89, 0.32, 1.28)`,
 	whiteSpace: 'pre',
 }));
-
-export default Toast;

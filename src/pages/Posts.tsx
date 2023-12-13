@@ -2,8 +2,7 @@ import { FunctionComponent } from 'react';
 import Header from '@components/common/Header';
 import styled from '@emotion/styled';
 import { theme } from '@components/common/theme';
-import Navigationbar from '@components/Posts/Navigationbar';
-import PostList from '@components/Posts/PostList';
+import { Navigationbar, PostList } from '@components/Posts';
 
 const Posts: FunctionComponent = () => {
 	return (

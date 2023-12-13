@@ -7,7 +7,7 @@ import { blind } from '@components/styles/blind';
 import styled from '@emotion/styled';
 import Tip from '@components/styles/components/Tip';
 
-const SocialLinks: FunctionComponent = () => {
+export const SocialLinks: FunctionComponent = () => {
 	return (
 		<ListWrapper>
 			<li>
@@ -64,5 +64,3 @@ const StlyedAnchor = styled.a({
 
 	'& > span': { ...blind },
 });
-
-export default SocialLinks;

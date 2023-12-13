@@ -1,13 +1,13 @@
 import Markdown from 'react-markdown';
 import React, { FunctionComponent } from 'react';
-import { theme } from './theme';
 import styled from '@emotion/styled';
 import matter, { GrayMatterFile } from 'gray-matter';
 import 'dayjs/locale/en';
-import Header from '@components/Posts/Header';
+import { theme } from './theme';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import Button from './Button';
-import toast from '@utils/toast';
+import { copyToClipboard } from '@utils/index';
+import { Header } from '@components/Posts';
 
 type MarkdownRednererProps = {
 	markdown: '*.md';
@@ -43,18 +43,6 @@ const MarkdownRednerer: FunctionComponent<MarkdownRednererProps> = ({
 	const { content, data } = matter(markdown) as CustomGrayMatterFile;
 
 	const handleClick = (code: string) => {
-		function copyToClipboard(code: string) {
-			navigator.clipboard
-				.writeText(code)
-				.then(() => {
-					toast('복사 완료', { delay: 2000 });
-				})
-				.catch((err) => {
-					toast('복사 실패.. 다시 시도해주세요', { delay: 2000 });
-					console.error(err);
-				});
-		}
-
 		copyToClipboard(code);
 	};
 

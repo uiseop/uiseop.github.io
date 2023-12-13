@@ -5,7 +5,7 @@ import Categories from '@components/common/Categories';
 import { HeaderProps } from '@components/common/MarkdownRenderer';
 import { theme } from '@components/common/theme';
 
-const Header: FunctionComponent<HeaderProps> = ({
+export const Header: FunctionComponent<HeaderProps> = ({
 	title,
 	date,
 	categories,
@@ -56,5 +56,3 @@ const Wrapper = styled.header({
 		},
 	},
 });
-
-export default Header;

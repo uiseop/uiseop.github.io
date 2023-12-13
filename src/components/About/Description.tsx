@@ -14,7 +14,7 @@ const writeSpeed = 100;
 const deleteSpeed = 50;
 const changeWordSpeed = 1000;
 
-const Description: FunctionComponent = () => {
+export const Description: FunctionComponent = () => {
 	const cursorRef = useRef<HTMLSpanElement>(null);
 	let timer: ReturnType<typeof setTimeout>;
 	let wordIndex = useRef(0);
@@ -80,5 +80,3 @@ const CursorSpan = styled.span({
 		animation: `${blink} 0.7s infinite`,
 	},
 });
-
-export default Description;

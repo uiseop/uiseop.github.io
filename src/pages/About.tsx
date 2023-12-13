@@ -2,8 +2,7 @@ import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import Header from '@components/common/Header';
 import { theme } from '@components/common/theme';
-import Description from '@components/About/Description';
-import SocialLinks from '@components/About/SocialLinks';
+import { Description, SocialLinks } from '@components/About/index';
 
 const About: FunctionComponent = () => {
 	return (

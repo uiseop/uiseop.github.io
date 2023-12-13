@@ -5,7 +5,7 @@ import { ellipsis } from '@components/styles/ellipsis';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-const PostList = () => {
+export const PostList = () => {
 	return (
 		<Wrapper>
 			<li>
@@ -73,5 +73,3 @@ const PostInfoWrapper = styled.div({
 	marginTop: '17px',
 	fontSize: '.8rem',
 });
-
-export default PostList;

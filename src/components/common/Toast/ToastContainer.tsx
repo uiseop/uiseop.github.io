@@ -8,9 +8,8 @@ import {
 	ToastContent,
 	ToastProps,
 } from 'types';
-import Toast from './Toast';
-import ToastModal from './ToastModal';
 import React from 'react';
+import { Toast, ToastModal } from '.';
 
 interface QueuedToast {
 	toastContent: ToastContent;
@@ -29,7 +28,7 @@ export interface ContainerInstance {
 	count: number;
 }
 
-const ToastContainer = () => {
+export const ToastContainer = () => {
 	const [, setToastIds] = useState<Id[]>([]);
 	const toastToRender = useRef(new Map<Id, ToastType>()).current;
 
@@ -97,5 +96,3 @@ const ToastContainer = () => {
 		</ToastModal>
 	);
 };
-
-export default ToastContainer;

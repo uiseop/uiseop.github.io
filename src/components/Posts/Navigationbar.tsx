@@ -5,7 +5,7 @@ import { Button } from '@mui/material';
 import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navigationbar: FunctionComponent = () => {
+export const Navigationbar: FunctionComponent = () => {
 	return (
 		<Navigation>
 			<StyledLink to="/posts">
@@ -45,5 +45,3 @@ const StyledLink = eStyled(NavLink)({
 		color: theme.colors.tabSelected,
 	},
 });
-
-export default Navigationbar;

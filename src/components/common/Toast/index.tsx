@@ -1,5 +1,3 @@
-import Toast from './Toast';
-import ToastContainer from './ToastContainer';
-import ToastModal from './ToastModal';
-
-export { Toast, ToastContainer, ToastModal };
+export * from './Toast';
+export * from './ToastContainer';
+export * from './ToastModal';
