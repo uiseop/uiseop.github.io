@@ -10,10 +10,7 @@ interface ToastModalProps {
 }
 
 const ToastModal = ({ children }: ToastModalProps) => {
-	return createPortal(
-		<Wrapper className="top">{children as ReactNode}</Wrapper>,
-		modalRoot,
-	);
+	return createPortal(<Wrapper>{children as ReactNode}</Wrapper>, modalRoot);
 };
 
 const Wrapper = styled.div({
