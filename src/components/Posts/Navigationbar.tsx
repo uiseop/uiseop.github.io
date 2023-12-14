@@ -26,13 +26,18 @@ export const Navigationbar = ({ categories }: NavigationbarProps) => {
 const Navigation = eStyled.nav({
 	display: 'flex',
 	alignItems: 'center',
-	justifyContent: 'space-between',
+	justifyContent: 'flex-start',
 	flexWrap: 'nowrap',
+	gap: '7px',
 });
 
 const CustomButton = styled(Button)({
 	color: theme.colors.tabText,
 	fontWeight: 700,
+
+	'&:hover': {
+		backgroundColor: theme.colors.aboutLinkIconHover,
+	},
 });
 
 const StyledLink = eStyled(NavLink)({

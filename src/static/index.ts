@@ -1,11 +1,9 @@
 import test from './test.md';
-import test2 from './test copy.md';
-import test3 from './test copy 2.md';
 import { MdFile } from 'types';
 import matter from 'gray-matter';
 import { CustomGrayMatterFile } from '@components/common';
 
-export const files: MdFile[] = [test, test2, test3].map((file, idx) => ({
+export const files: MdFile[] = [test].map((file, idx) => ({
 	file,
 	key: idx,
 }));
