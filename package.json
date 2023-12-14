@@ -9,6 +9,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "webpack-dev-server --config webpack.dev.js --mode development --open --progress",
 		"build": "vite build",
+		"preview": "vite preview --port 8080",
 		"deploly": "gh-pages -d build"
 	},
 	"keywords": [],

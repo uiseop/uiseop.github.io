@@ -19,24 +19,29 @@ const postRouter: RouteObject = {
 	],
 };
 
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+	[
+		{
+			path: '/',
+			element: <Template />,
+			children: [
+				{
+					index: true,
+					element: <Main />,
+				},
+				{
+					path: 'about',
+					element: <About />,
+				},
+				{
+					path: ':postId',
+					element: <Post />,
+				},
+				postRouter,
+			],
+		},
+	],
 	{
-		path: '/',
-		element: <Template />,
-		children: [
-			{
-				index: true,
-				element: <Main />,
-			},
-			{
-				path: 'about',
-				element: <About />,
-			},
-			{
-				path: ':postId',
-				element: <Post />,
-			},
-			postRouter,
-		],
+		basename: '/',
 	},
-]);
+);
