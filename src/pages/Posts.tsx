@@ -1,17 +1,33 @@
-import { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import { theme } from '@components/common/theme';
 import { Navigationbar, PostList } from '@components/Posts';
 import { Header } from '@components/common/Header';
+import { files } from '@static/index';
+import { CustomGrayMatterFile } from '@components/common';
+import matter from 'gray-matter';
 
-const Posts: FunctionComponent = () => {
+let categorySet = new Set<string>();
+let categories: string[];
+
+function handleCategories() {
+	files.forEach(({ file }) => {
+		const { data } = matter(file) as CustomGrayMatterFile;
+		data.categories.forEach((category) => categorySet.add(category));
+	});
+
+	categories = Array.from(categorySet);
+}
+
+handleCategories();
+
+const Posts = () => {
 	return (
 		<>
 			<Header />
 			<Wrapper>
-				<Navigationbar />
+				<Navigationbar categories={categories} />
 				<Main>
-					<PostList />
+					<PostList files={files} />
 				</Main>
 			</Wrapper>
 		</>

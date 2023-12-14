@@ -2,12 +2,16 @@ import { theme } from '@components/common/theme';
 import { ellipsis } from '@components/styles/ellipsis';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { files } from '@static/index';
 import matter from 'gray-matter';
 import { CustomGrayMatterFile } from '@components/common/MarkdownRenderer';
 import { Categories, Date } from '@components/common';
+import { MdFile } from 'types';
 
-export const PostList = () => {
+interface PostListProps {
+	files: MdFile[];
+}
+
+export const PostList = ({ files }: PostListProps) => {
 	return (
 		<Wrapper>
 			{files.map(({ file, key }) => {

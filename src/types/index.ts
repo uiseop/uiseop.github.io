@@ -1,4 +1,5 @@
 import React from 'react';
+export * from './mdFile';
 // import { CloseButtonProps, IconProps } from '../components';
 
 type Nullable<T> = {
