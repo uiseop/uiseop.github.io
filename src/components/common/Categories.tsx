@@ -44,7 +44,7 @@ const Wrapper = styled.ul({
 	'& li:hover': {
 		position: 'relative',
 
-		'&::before': {
+		'& a::before': {
 			content: '""',
 			position: 'absolute',
 			left: 0,

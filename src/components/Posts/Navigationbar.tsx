@@ -11,7 +11,7 @@ interface NavigationbarProps {
 export const Navigationbar = ({ categories }: NavigationbarProps) => {
 	return (
 		<Navigation>
-			<StyledLink to="/posts">
+			<StyledLink to="/posts" end>
 				<CustomButton>ALL</CustomButton>
 			</StyledLink>
 			{categories.map((category) => (

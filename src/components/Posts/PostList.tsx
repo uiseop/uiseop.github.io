@@ -1,7 +1,7 @@
 import { theme } from '@components/common/theme';
 import { ellipsis } from '@components/styles/ellipsis';
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import matter from 'gray-matter';
 import { CustomGrayMatterFile } from '@components/common/MarkdownRenderer';
 import { Categories, Date } from '@components/common';
@@ -12,15 +12,25 @@ interface PostListProps {
 }
 
 export const PostList = ({ files }: PostListProps) => {
+	const { category } = useParams();
+
+	const filteredFiles = files.filter(({ file }) => {
+		if (!category) return true;
+
+		const { data } = matter(file) as CustomGrayMatterFile;
+		if (data.categories.includes(category)) return true;
+		return false;
+	});
+
 	return (
 		<Wrapper>
-			{files.map(({ file, key }) => {
+			{filteredFiles.map(({ file, key }) => {
 				const { data, excerpt } = matter(file, {
 					excerpt: true,
 				}) as CustomGrayMatterFile;
 				return (
 					<li key={key}>
-						<Link to={`/posts/${key}`} state={{ markdown: file, data }}>
+						<Link to={`/${key}`} state={{ markdown: file, data }}>
 							<PostTitle>{data.title}</PostTitle>
 							<PostContet>{excerpt}</PostContet>
 							<PostInfoWrapper>

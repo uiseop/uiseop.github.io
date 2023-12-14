@@ -13,8 +13,8 @@ const postRouter: RouteObject = {
 			element: <Posts />,
 		},
 		{
-			path: ':postId',
-			element: <Post />,
+			path: ':category',
+			element: <Posts />,
 		},
 	],
 };
@@ -31,6 +31,10 @@ export const router = createBrowserRouter([
 			{
 				path: 'about',
 				element: <About />,
+			},
+			{
+				path: ':postId',
+				element: <Post />,
 			},
 			postRouter,
 		],
