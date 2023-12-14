@@ -8,7 +8,7 @@
 		"dev": "vite",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "webpack-dev-server --config webpack.dev.js --mode development --open --progress",
-		"build": "webpack --config webpack.prod.js",
+		"build": "vite build",
 		"deploly": "gh-pages -d build"
 	},
 	"homepage": "https://github.com/uiseop/uiseop.github.io",
