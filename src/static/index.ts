@@ -1,4 +1,4 @@
-import test from './test.md';
+import test from './헤드리스_컴포넌트_클린코드_접근법.md';
 import { MdFile } from 'types';
 import matter from 'gray-matter';
 import { CustomGrayMatterFile } from '@components/common';
