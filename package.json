@@ -4,15 +4,12 @@
 	"description": "",
 	"main": "index.js",
 	"type": "module",
-	"homepage": "https://github.com/uiseop/uiseop.github.io",
 	"scripts": {
 		"dev": "vite",
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"start": "webpack-dev-server --config webpack.dev.js --mode development --open --progress",
 		"build": "vite build",
-		"preview": "vite preview --port 8080",
-		"predeploy": "npm run build",
-		"deploy": "gh-pages -d dist"
+		"preview": "vite preview --port 8080"
 	},
 	"keywords": [],
 	"author": "",
