@@ -1,13 +1,13 @@
-import { FunctionComponent } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { Header, MarkdownRednerer } from '@components/common';
 import { files } from '@static/index';
 
-const Post: FunctionComponent = () => {
-	let { state, pathname } = useLocation();
+const Post = () => {
+	let { state } = useLocation();
 
 	if (!state) {
-		state = { markdown: files[parseInt(pathname.split('/')[2])].file };
+		const { postId } = useParams();
+		state = { markdown: files[parseInt(postId!)].file };
 	}
 
 	return (

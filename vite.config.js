@@ -8,6 +8,7 @@ import rollupNodePolyFill from 'rollup-plugin-polyfill-node';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	base: './',
 	plugins: [
 		react({
 			// babel: { plugins: [jotaiDebugLabel, jotaiReactRefresh] },
