@@ -19,6 +19,7 @@
 		"@emotion/react": "^11.11.1",
 		"@emotion/styled": "^11.11.0",
 		"@esbuild-plugins/node-globals-polyfill": "^0.2.3",
+		"@esbuild-plugins/node-modules-polyfill": "^0.2.2",
 		"@fortawesome/fontawesome-svg-core": "^6.4.2",
 		"@fortawesome/free-brands-svg-icons": "^6.4.2",
 		"@fortawesome/free-solid-svg-icons": "^6.4.2",
@@ -35,7 +36,8 @@
 		"react-markdown": "^9.0.1",
 		"react-router-dom": "^6.17.0",
 		"react-spring": "^9.7.3",
-		"react-syntax-highlighter": "^15.5.0"
+		"react-syntax-highlighter": "^15.5.0",
+		"rollup-plugin-polyfill-node": "^0.13.0"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.23.0",
