@@ -1,8 +1,4 @@
-import {
-	RouteObject,
-	createBrowserRouter,
-	DOMRouterOpts,
-} from 'react-router-dom';
+import { RouteObject, createBrowserRouter } from 'react-router-dom';
 import Main from '@pages/Main';
 import About from './pages/About';
 import Posts from './pages/Posts';
@@ -23,31 +19,24 @@ const postRouter: RouteObject = {
 	],
 };
 
-const routerOption: DOMRouterOpts = {
-	basename: import.meta.env.BASE_URL,
-};
-
-export const router = createBrowserRouter(
-	[
-		{
-			path: '/',
-			element: <Template />,
-			children: [
-				{
-					index: true,
-					element: <Main />,
-				},
-				{
-					path: 'about',
-					element: <About />,
-				},
-				{
-					path: ':postId',
-					element: <Post />,
-				},
-				postRouter,
-			],
-		},
-	],
-	routerOption,
-);
+export const router = createBrowserRouter([
+	{
+		path: '/',
+		element: <Template />,
+		children: [
+			{
+				index: true,
+				element: <Main />,
+			},
+			{
+				path: 'about',
+				element: <About />,
+			},
+			{
+				path: ':postId',
+				element: <Post />,
+			},
+			postRouter,
+		],
+	},
+]);
