@@ -25,14 +25,12 @@ export const PostList = ({ files }: PostListProps) => {
 	return (
 		<Wrapper>
 			{filteredFiles.map(({ file, key }) => {
-				const { data, excerpt } = matter(file, {
-					excerpt: true,
-				}) as CustomGrayMatterFile;
+				const { data } = matter(file) as CustomGrayMatterFile;
 				return (
 					<li key={key}>
 						<Link to={`/${key}`} state={{ markdown: file, data }}>
 							<PostTitle>{data.title}</PostTitle>
-							<PostContet>{excerpt}</PostContet>
+							<PostContet>{data.summary}</PostContet>
 							<PostInfoWrapper>
 								<Date date={data.date} />
 								<Categories categories={data.categories} />

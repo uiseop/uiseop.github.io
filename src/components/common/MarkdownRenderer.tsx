@@ -19,14 +19,13 @@ export type HeaderProps = {
 	title: string;
 	date: string;
 	categories: string[];
+	summary: string;
 };
 
 export type CustomGrayMatterFile = GrayMatterFile<
 	MarkdownRednererProps['markdown']
 > & {
-	data: HeaderProps & {
-		[key: string]: any;
-	};
+	data: HeaderProps;
 };
 
 interface CodeProps
@@ -47,7 +46,7 @@ export const MarkdownRednerer = ({ markdown }: MarkdownRednererProps) => {
 	return (
 		<Wrapper>
 			<Header {...data} />
-			<Markdown
+			<CustomMarkdown
 				components={{
 					blockquote(props) {
 						return <BlockQuoteStyle {...props} />;
@@ -75,8 +74,7 @@ export const MarkdownRednerer = ({ markdown }: MarkdownRednererProps) => {
 									style={{}}
 									useInlineStyles={false}
 									language={match[1]}
-									wrapLongLines
-									customStyle={{ whiteSpace: 'pre-wrap' }}
+									// wrapLongLines
 								>
 									{code}
 								</CustomSyntaxHighligter>
@@ -106,30 +104,44 @@ export const MarkdownRednerer = ({ markdown }: MarkdownRednererProps) => {
 				}}
 			>
 				{content}
-			</Markdown>
+			</CustomMarkdown>
 		</Wrapper>
 	);
 };
 
-const PasteWrapper = styled.div({
-	position: 'relative',
+const Wrapper = styled.article({
+	color: theme.colors.contentText,
+	width: '100%',
+	maxWidth: '720px',
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center',
+	gap: '24px',
+	lineHeight: '1.6',
 });
 
-const CustomSyntaxHighligter = styled(SyntaxHighlighter)({
-	position: 'relative',
-	padding: '55px 25px 25px',
-	fontWeight: 500,
-	backgroundColor: 'transparent',
+const CustomMarkdown = styled(Markdown)({
+	width: '100%',
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center',
 
-	'&::before': {
-		content: '""',
-		position: 'absolute',
-		height: '30px',
-		left: 0,
-		top: 0,
-		width: '100%',
-		backgroundColor: theme.colors.background2,
+	'& > pre': {
+		margin: '35px auto',
 	},
+
+	'& pre': {
+		maxWidth: '100%',
+		display: 'inline-block',
+	},
+});
+
+const PasteWrapper = styled.div({
+	position: 'relative',
+	height: '30px',
+	backgroundColor: theme.colors.background2,
 
 	'&::after': {
 		content: '""',
@@ -144,16 +156,12 @@ const CustomSyntaxHighligter = styled(SyntaxHighlighter)({
 	},
 });
 
-const Wrapper = styled.article({
-	color: theme.colors.contentText,
-	width: '100%',
-	maxWidth: '720px',
-	display: 'flex',
-	flexDirection: 'column',
-	justifyContent: 'center',
-	alignItems: 'center',
-	gap: '24px',
-	lineHeight: '1.6',
+const CustomSyntaxHighligter = styled(SyntaxHighlighter)({
+	position: 'relative',
+	padding: '25px',
+	fontWeight: 500,
+	backgroundColor: 'transparent',
+	overflow: 'auto',
 });
 
 const BlockQuoteStyle = styled.blockquote({
