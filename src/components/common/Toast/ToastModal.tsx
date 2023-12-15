@@ -1,16 +1,30 @@
 import styled from '@emotion/styled';
 import { createPortal } from 'react-dom';
 import { ToastContent } from 'types';
-import { ReactNode } from 'react';
-
-const modalRoot = document.getElementById('modal') as Element;
+import { ReactNode, useEffect, useState } from 'react';
 
 interface ToastModalProps {
 	children: ToastContent;
 }
 
 export const ToastModal = ({ children }: ToastModalProps) => {
-	return createPortal(<Wrapper>{children as ReactNode}</Wrapper>, modalRoot);
+	const [mounted, setMounted] = useState<boolean>(false);
+
+	useEffect(() => {
+		setMounted(true);
+		return () => setMounted(false);
+	}, []);
+
+	if (typeof window === 'undefined') return <></>;
+
+	return mounted ? (
+		createPortal(
+			<Wrapper>{children as ReactNode}</Wrapper>,
+			document.getElementById('modal') as HTMLElement,
+		)
+	) : (
+		<></>
+	);
 };
 
 const Wrapper = styled.div({
