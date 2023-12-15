@@ -27,6 +27,7 @@ const Wrapper = styled.header({
 	justifyContent: 'center',
 	marginTop: '80px',
 	fontSize: '2rem',
+	width: '100%',
 
 	h1: {
 		color: theme.colors.text,
