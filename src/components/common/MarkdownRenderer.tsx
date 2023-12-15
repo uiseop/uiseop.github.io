@@ -118,7 +118,6 @@ const Wrapper = styled.article({
 	justifyContent: 'center',
 	alignItems: 'center',
 	gap: '24px',
-	lineHeight: '1.6',
 });
 
 const CustomMarkdown = styled(Markdown)({
@@ -126,16 +125,29 @@ const CustomMarkdown = styled(Markdown)({
 	display: 'flex',
 	flexDirection: 'column',
 	justifyContent: 'center',
-	alignItems: 'center',
 	gap: '1rem',
+	lineHeight: '1.5',
 
 	'& > pre': {
 		margin: '35px auto',
+
+		'& > pre': {
+			margin: 0,
+		},
 	},
 
 	'& pre': {
 		maxWidth: '100%',
 		display: 'inline-block',
+	},
+
+	'p em': {
+		display: 'block',
+		textAlign: 'center',
+	},
+
+	'blockquote, details, dl, il, p, pre, ul': {
+		lineHeight: '1.6',
 	},
 });
 
