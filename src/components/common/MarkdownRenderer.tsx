@@ -20,6 +20,7 @@ export type HeaderProps = {
 	date: string;
 	categories: string[];
 	summary: string;
+	author: string;
 };
 
 export type CustomGrayMatterFile = GrayMatterFile<

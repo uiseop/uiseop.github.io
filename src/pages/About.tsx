@@ -3,10 +3,12 @@ import styled from '@emotion/styled';
 import { theme } from '@components/common/theme';
 import { Description, SocialLinks } from '@components/About';
 import { Header } from '@components/common';
+import { Seo } from '@components/common/Seo';
 
 const About: FunctionComponent = () => {
 	return (
 		<>
+			<Seo title="About" description="나를 소개합니다" author="uiseop" />
 			<Header />
 			<Wrapper>
 				<Description />

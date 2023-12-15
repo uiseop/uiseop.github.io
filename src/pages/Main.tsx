@@ -2,10 +2,12 @@ import { FunctionComponent } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 import { theme } from '@components/common/theme';
+import { Seo } from '@components/common/Seo';
 
 const Main: FunctionComponent = () => {
 	return (
 		<Wrapper>
+			<Seo title="Main" description="섭이의 개발 블로그" author="uiseop" />
 			<header>
 				<Title>CHUG ALONG</Title>
 				<Author>by Seop_ee</Author>
