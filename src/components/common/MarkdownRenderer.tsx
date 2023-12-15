@@ -128,6 +128,10 @@ const CustomMarkdown = styled(Markdown)({
 	gap: '1rem',
 	lineHeight: '1.5',
 
+	'& > :first-of-type': {
+		marginTop: 0,
+	},
+
 	'& > pre': {
 		margin: '35px auto',
 
