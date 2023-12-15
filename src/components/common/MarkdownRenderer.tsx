@@ -127,6 +127,7 @@ const CustomMarkdown = styled(Markdown)({
 	flexDirection: 'column',
 	justifyContent: 'center',
 	alignItems: 'center',
+	gap: '1rem',
 
 	'& > pre': {
 		margin: '35px auto',
