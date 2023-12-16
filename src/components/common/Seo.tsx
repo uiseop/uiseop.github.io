@@ -1,5 +1,4 @@
-import { Helmet } from 'react-helmet';
-import og_image from '@static/images/og-image.png';
+import { Helmet } from 'react-helmet-async';
 
 interface SeoProps {
 	title: string;
@@ -9,39 +8,14 @@ interface SeoProps {
 
 export const Seo = ({ title, description, author }: SeoProps) => {
 	return (
-		<Helmet
-			htmlAttributes={{ lang: 'ko' }}
-			title={title}
-			meta={[
-				{
-					property: `og:title`,
-					content: title,
-				},
-				{
-					property: `og:site_title`,
-					content: title,
-				},
-				{
-					name: `description`,
-					content: description,
-				},
-				{
-					property: `og:description`,
-					content: description,
-				},
-				{
-					property: 'og:author',
-					content: author,
-				},
-				{
-					property: 'og:image',
-					content: og_image,
-				},
-				{
-					property: `og:type`,
-					content: `website`,
-				},
-			]}
-		/>
+		<Helmet>
+			<title>Your Page Title</title>
+			<meta property="og:title" content={title} />
+			<meta property="og:site_title" content={title} />
+			<meta name="description" content={description} />
+			<meta property="og:description" content={description} />
+			<meta property="og:author" content={author} />
+			<meta property="og:type" content="website" />
+		</Helmet>
 	);
 };

@@ -9,14 +9,12 @@ import React from 'react';
 
 const App = () => {
 	return (
-		<React.StrictMode>
-			<ThemeProvider>
-				<GlobalStyle />
-				<Routes />
-				<ThemeToggler />
-				<ToastContainer />
-			</ThemeProvider>
-		</React.StrictMode>
+		<ThemeProvider>
+			<GlobalStyle />
+			<Routes />
+			<ThemeToggler />
+			<ToastContainer />
+		</ThemeProvider>
 	);
 };
 
