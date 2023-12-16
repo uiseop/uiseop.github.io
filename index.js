@@ -15,7 +15,7 @@ const ssrManifest = isProduction
 	: undefined;
 
 // Create http server
-const app = express();
+export const app = express();
 
 // Add Vite or respective production middlewares
 let vite;
@@ -69,3 +69,5 @@ app.use('*', async (req, res) => {
 app.listen(port, () => {
 	console.log(`Server started at http://localhost:${port}`);
 });
+
+module.exports = app;
