@@ -1,7 +1,6 @@
 import { theme } from '@components/common/theme';
 import eStyled from '@emotion/styled';
-import { styled } from '@mui/material/styles';
-import { Button } from '@mui/material';
+import { Button, styled } from '@mui/material';
 import { NavLink } from 'react-router-dom';
 
 interface NavigationbarProps {
