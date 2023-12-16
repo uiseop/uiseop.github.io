@@ -7,11 +7,10 @@
 	"scripts": {
 		"csr": "vite",
 		"dev": "node server",
-		"build": "npm run build:client && npm run build:server",
+		"build": "npm run build:client && npm run build:server && dev",
 		"build:client": "vite build --ssrManifest --outDir dist/client",
 		"build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
-		"preview": "cross-env NODE_ENV=production node server",
-		"start": "yarn dev"
+		"preview": "cross-env NODE_ENV=production node server"
 	},
 	"keywords": [],
 	"author": "",
