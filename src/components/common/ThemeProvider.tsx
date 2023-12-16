@@ -3,7 +3,7 @@ import {
 	ReactNode,
 	SetStateAction,
 	createContext,
-	useLayoutEffect,
+	useEffect,
 	useMemo,
 	useState,
 } from 'react';
@@ -20,7 +20,7 @@ export const ThemeContext = createContext<ThemeContextType | null>(null);
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 	const [theme, setTheme] = useState<ThemeType>('light');
 
-	useLayoutEffect(() => {
+	useEffect(() => {
 		document.body.dataset.theme = theme;
 	}, [theme]);
 

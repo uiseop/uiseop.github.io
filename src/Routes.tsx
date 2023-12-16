@@ -12,7 +12,9 @@ export const Routes = () => {
 				<Route index Component={Main} />
 				<Route path="/about" Component={About} />
 				<Route path="/:postId" Component={Post} />
-				<Route path="/posts" Component={Posts} />
+				<Route path="/posts" Component={Posts}>
+					<Route path=":category" Component={Posts} />
+				</Route>
 			</Route>
 		</ReactRoutes>
 	);
