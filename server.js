@@ -4,7 +4,6 @@ import express from 'express';
 // Constants
 const isProduction = process.env.NODE_ENV === 'production';
 const port = process.env.PORT || 5173;
-console.log(process.env.NODE_ENV, 'hahhaha', process.env.PORT);
 const base = process.env.BASE || '/';
 
 // Cached production assets
