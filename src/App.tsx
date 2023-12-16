@@ -4,7 +4,7 @@ import {
 	ThemeToggler,
 	ToastContainer,
 } from '@components/common';
-import { Routes } from './routes';
+import { Routes } from './Routes';
 import React from 'react';
 
 const App = () => {

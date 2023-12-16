@@ -55,4 +55,7 @@ export default defineConfig({
 			plugins: [rollupNodePolyFill()],
 		},
 	},
+	ssr: {
+		noExternal: ['react-helmet-async'],
+	},
 });
