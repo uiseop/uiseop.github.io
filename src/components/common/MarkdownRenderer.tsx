@@ -118,6 +118,7 @@ const Wrapper = styled.article({
 	flexDirection: 'column',
 	justifyContent: 'center',
 	alignItems: 'center',
+	lineHeight: '1.6',
 	gap: '24px',
 });
 

@@ -7,7 +7,12 @@ import rollupNodePolyFill from 'rollup-plugin-polyfill-node';
 // https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [
-		react(),
+		react({
+			jsxImportSource: '@emotion/react',
+			babel: {
+				plugins: ['@emotion/babel-plugin'],
+			},
+		}),
 		{
 			name: 'markdown-loader',
 			transform(code, id) {

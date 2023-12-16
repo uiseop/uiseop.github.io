@@ -4,15 +4,19 @@ import {
 	ThemeToggler,
 	ToastContainer,
 } from '@components/common';
+import { Routes } from './routes';
 import React from 'react';
 
 const App = () => {
 	return (
-		<ThemeProvider>
-			<GlobalStyle />
-			<ThemeToggler />
-			<ToastContainer />
-		</ThemeProvider>
+		<React.StrictMode>
+			<ThemeProvider>
+				<GlobalStyle />
+				<Routes />
+				<ThemeToggler />
+				<ToastContainer />
+			</ThemeProvider>
+		</React.StrictMode>
 	);
 };
 
