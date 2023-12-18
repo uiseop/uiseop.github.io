@@ -1,16 +1,16 @@
 {
-	"name": "apipractice",
+	"name": "devseop-blog",
 	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
+	"description": "devSeop",
+	"main": "server.js",
 	"type": "module",
 	"scripts": {
-		"dev": "node index.js",
-		"build:all": "npm run build:client && npm run build:server",
+		"dev": "node server.js",
+		"build": "npm run build:client && npm run build:server",
 		"build:client": "vite build --outDir dist/client --ssrManifest",
 		"build:server": "vite build --ssr src/entry-server.tsx --outDir dist/server",
-		"preview": "cross-env NODE_ENV=production node index.js",
-		"start": "node index.js"
+		"preview": "cross-env NODE_ENV=production node server.js",
+		"start": "node server.js"
 	},
 	"keywords": [],
 	"author": "",
