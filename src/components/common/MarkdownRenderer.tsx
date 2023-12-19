@@ -155,6 +155,11 @@ const CustomMarkdown = styled(Markdown)({
 	'blockquote, details, dl, il, p, pre, ul': {
 		lineHeight: '1.6',
 	},
+
+	img: {
+		display: 'block',
+		margin: '0 auto',
+	},
 });
 
 const PasteWrapper = styled.div({

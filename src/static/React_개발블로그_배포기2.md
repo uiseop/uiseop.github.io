@@ -141,7 +141,6 @@ const root = createRoot(container);
 root.render(<App />);
 
 // after index.tsx
-
 const container = document.getElementById('root') as HTMLElement;
 ReactDOM.hydrateRoot(
 	container,
