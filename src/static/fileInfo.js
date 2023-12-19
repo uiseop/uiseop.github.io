@@ -46,7 +46,7 @@ if (typeof process !== 'undefined') {
 	);
 	const test = await import('./헤드리스_컴포넌트_클린코드_접근법.md');
 
-	filesInfo.files = [deploy, test];
+	filesInfo.files = [deploy.default, test.default];
 }
 
 function addCategory(file) {
