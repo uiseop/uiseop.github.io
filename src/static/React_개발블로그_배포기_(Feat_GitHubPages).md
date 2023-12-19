@@ -1,5 +1,5 @@
 ---
-title: 'React 개발 블로그 배포기 (Feat.GitHub Pages)'
+title: 'React 개발 블로그 배포기 (Feat.GitHub Pages) - 1'
 date: '2023-12-15 00:00:00'
 author: 'uiseop'
 categories: [react, trouble_shooting]
@@ -218,4 +218,3 @@ export default defineConfig({
 ## 마치며..
 
 이렇게 해서 제 첫 개발 블로그를 성공적으로 출범시킬 수 있었습니다. 부족하지만 제 블로그 타이틀인 **CHUG ALONG**(=천천히 그리고 꾸준히) 가꿔나가보도록 해보겠습니다.
-
