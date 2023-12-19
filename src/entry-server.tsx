@@ -2,11 +2,15 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import App from './App';
 import { StaticRouter } from 'react-router-dom/server';
-import { HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider, HelmetServerState } from 'react-helmet-async';
 
-const helmetContext = {};
+interface HelmetContextProps {
+	helmet?: HelmetServerState;
+}
 
 export function render(url: string) {
+	const helmetContext: HelmetContextProps = {};
+
 	const html = ReactDOMServer.renderToString(
 		<React.StrictMode>
 			<HelmetProvider context={helmetContext}>
@@ -16,5 +20,8 @@ export function render(url: string) {
 			</HelmetProvider>
 		</React.StrictMode>,
 	);
-	return { html };
+
+	const { title, meta } = helmetContext.helmet || {};
+
+	return { html, head: `${title}${meta}` };
 }
