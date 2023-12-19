@@ -2242,7 +2242,9 @@ if (typeof process !== 'undefined') {
 } else {
   const deploy = await import('./assets/React_개발블로그_배포기_(Feat_GitHubPages)-UxM7vLdo.js');
   const test = await import('./assets/헤드리스_컴포넌트_클린코드_접근법-23kkF0Lh.js');
-  filesInfo.files = [deploy, test];
+  addCategory(deploy.default);
+  addCategory(test.default);
+  filesInfo.files = [deploy.default, test.default];
 }
 function addCategory(file) {
   const {
