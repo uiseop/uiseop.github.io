@@ -2,7 +2,7 @@
 title: 'React 개발 블로그 배포기 (Feat.GitHub Pages) - 1'
 date: '2023-12-15 00:00:00'
 author: 'uiseop'
-categories: [react, trouble_shooting]
+categories: [react, trouble_shooting, deploy]
 summary: '개발한 React 환경의 개발 블로그를 GitHub Pages로 배포 과정을 정리합니다.'
 ---
 
@@ -68,6 +68,8 @@ summary: '개발한 React 환경의 개발 블로그를 GitHub Pages로 배포 �
 
 답글에서는 Github 내 한 [레포지토리](https://github.com/rafgraph/spa-github-pages)를 링크로 남겨두었는데 설명이 굉장히 상세합니다. 한 번 읽어봐도 괜찮더라구요.저는 긴 글들에서 핵심, 그리고 Vite 환경에서 설정하는 방식을 추가해서 기록 하겠습니다.
 
+### 1. 404.html 파일 만들기
+
 설명에서는 redirect 하는 script를 담은 404.html 문서를 제공하고, index.html에서 redirect 한 URL을 Parsing하는 script를 추가해서 404 Page를 index.html로 대체하는 코드를 담고 있습니다.
 
 ```html
@@ -124,9 +126,11 @@ summary: '개발한 React 환경의 개발 블로그를 GitHub Pages로 배포 �
 </html>
 ```
 
-`404.html` 파일은 위와 같은 내용의 코드들이 담겨 있는데 여기서 중요한건 pathSegmentsToKeep 변순데요, 만약 배포하신 깃헙 페이지의 주소가 다음과 같으면(`https://username.github.io/repo-name/`), 1 혹은 그 이상의 값으로 설정하라고 되어 있네요.
+`404.html` 파일은 위와 같은 내용의 코드들이 담겨 있는데 여기서 중요한건 pathSegmentsToKeep 변순데요, 만약 배포하신 깃헙 페이지의 주소가 다음과 같으면(`https://username.github.io/repo-name/`), `1` 혹은 그 이상의 값으로 설정하라고 되어 있네요.
 
 저는 `https://username.github.io/` 형식으로 배포할것이기 때문에 `0`으로 설정해두었습니다.
+
+### 2. index.html에 스크립트 추가하기
 
 ```html
 <!-- index.html -->
@@ -185,6 +189,8 @@ summary: '개발한 React 환경의 개발 블로그를 GitHub Pages로 배포 �
 
 그런 다음 Vite에 build 때 저희가 만들어 놓은 404.hmtl 파일도 같이 포함해달라고 알려줘야지만이 `dist` 디렉터리에 404.html 이 포함됩니다.
 
+### 3. 빌드 설정에 추가된 정보 알려주기
+
 이는 [여기](https://stackoverflow.com/questions/75911586/vite-insert-base-url-in-404-html)를 참고해서 `vite.config.ts` 설정을 완료했습니다.
 
 ```ts
@@ -212,6 +218,8 @@ export default defineConfig({
 	},
 });
 ```
+
+이렇게 설정해서 다시 `push` 하면 build를 통해 dist디렉터리 안에 `404.html` 파일을 올려놓을 수 있게 되었고, GitHub Pages에서 모른다고 파악한 경로에 대해서는 만들어놓은 `404.html` 파일을 불러올 수 있게 되었습니다. `404.html` 파일에는 다시 현재 경로를 파악해서 `index.html`으로 redirect 될 수 있도록 javascript 코드를 실행시키게 되겠죠!
 
 ---
 
