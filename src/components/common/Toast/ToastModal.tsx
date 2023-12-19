@@ -15,8 +15,6 @@ export const ToastModal = ({ children }: ToastModalProps) => {
 		return () => setMounted(false);
 	}, []);
 
-	if (typeof window === 'undefined') return <></>;
-
 	return mounted ? (
 		createPortal(
 			<Wrapper>{children as ReactNode}</Wrapper>,
