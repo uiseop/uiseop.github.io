@@ -2,7 +2,7 @@
 title: 'React 개발 블로그 배포기 (Feat.GitHub Pages) - 2: 프레임워크 없이 순수 React로 서버사이드 렌더링(SSG) 방식으로 변경하기'
 date: '2023-12-19 00:00:00'
 author: 'uiseop'
-categories: [react, trouble_shooting, delpoy]
+categories: [react, trouble_shooting, deploy]
 summary: 'CSR 방식에서 SSR 방식(정확히는 SSG)로 변경하면서 좌충우돌 겪었던 히스토리를 정리합니다.'
 ---
 
