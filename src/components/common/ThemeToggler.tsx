@@ -62,14 +62,15 @@ const Button = styled.button({
 	position: 'fixed',
 	right: '30px',
 	bottom: '30px',
-	width: '60px',
-	height: '60px',
+	width: '50px',
+	height: '50px',
 	borderRadius: '50%',
 	border: 'none',
 	fontSize: '2rem',
 	color: theme.colors.text,
 	backgroundColor: theme.colors.background2,
 	cursor: 'pointer',
+	zIndex: 1,
 });
 
 const Positioner = styled.div({

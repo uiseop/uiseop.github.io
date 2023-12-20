@@ -12,7 +12,7 @@ export const Categories = ({
 	withLink = false,
 }: CategoriesProps) => {
 	return (
-		<Wrapper>
+		<Wrapper className="helo">
 			{categories.map((category) => {
 				return (
 					<li key={category}>
@@ -35,11 +35,9 @@ const Wrapper = styled.ul({
 	justifyContent: 'center',
 	alignItems: 'center',
 	gap: '4px',
-	color: theme.colors.text,
-	fontSize: '.8rem',
-	fontWeight: 600,
 	boxSizing: 'content-box',
 	zIndex: 1,
+	flexWrap: 'wrap',
 
 	'& li:hover': {
 		position: 'relative',

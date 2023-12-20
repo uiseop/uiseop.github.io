@@ -154,6 +154,7 @@ const CustomMarkdown = styled(Markdown)({
 
 	'blockquote, details, dl, il, p, pre, ul': {
 		lineHeight: '1.6',
+		wordWrap: 'break-word',
 	},
 
 	img: {

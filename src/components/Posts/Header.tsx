@@ -40,8 +40,7 @@ const Wrapper = styled.header({
 		display: 'flex',
 		alignItems: 'center',
 		flexWrap: 'wrap',
-		fontSize: '1.1rem',
-		fontWeight: 500,
+		fontSize: '0.8rem',
 		lineHeight: '1.5',
 		marginBottom: '5px',
 		gap: '8px',
@@ -54,5 +53,9 @@ const Wrapper = styled.header({
 			borderRight: `2px solid ${theme.colors.postCardBorder}`,
 			paddingRight: '8px',
 		},
+	},
+
+	li: {
+		fontWeight: 600,
 	},
 });
