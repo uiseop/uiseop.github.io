@@ -1,9 +1,9 @@
+import { useEnhancedEffect } from '@components/hooks';
 import {
 	Dispatch,
 	ReactNode,
 	SetStateAction,
 	createContext,
-	useEffect,
 	useMemo,
 	useState,
 } from 'react';
@@ -20,7 +20,7 @@ export const ThemeContext = createContext<ThemeContextType | null>(null);
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
 	const [theme, setTheme] = useState<ThemeType>('light');
 
-	useEffect(() => {
+	useEnhancedEffect(() => {
 		document.body.dataset.theme = theme;
 	}, [theme]);
 
