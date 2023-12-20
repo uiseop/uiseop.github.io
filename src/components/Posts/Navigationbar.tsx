@@ -1,4 +1,5 @@
 import { theme } from '@components/common/theme';
+import { useHorizontalScroll } from '@components/hooks';
 import eStyled from '@emotion/styled';
 import { Button, styled } from '@mui/material';
 import { NavLink } from 'react-router-dom';
@@ -8,8 +9,10 @@ interface NavigationbarProps {
 }
 
 export const Navigationbar = ({ categories }: NavigationbarProps) => {
+	const navRef = useHorizontalScroll();
+
 	return (
-		<Navigation>
+		<Navigation ref={navRef}>
 			<StyledLink to="/posts" end draggable={false}>
 				<CustomButton>ALL</CustomButton>
 			</StyledLink>
@@ -28,6 +31,14 @@ const Navigation = eStyled.nav({
 	justifyContent: 'flex-start',
 	flexWrap: 'nowrap',
 	gap: '7px',
+	width: '100%',
+
+	// 가로 Scroll 허용 css
+	overflowX: 'auto',
+	'&::-webkit-scrollbar': {
+		display: 'none',
+	},
+	scrollbarWidth: 'none',
 });
 
 const CustomButton = styled(Button)({
