@@ -21,6 +21,7 @@ if (typeof process !== 'undefined') {
 		readFile('src/static/React_개발블로그_배포기2.md'),
 		readFile('src/static/React_개발블로그_배포기3.md'),
 		readFile('src/static/헤드리스_컴포넌트_클린코드_접근법.md'),
+		readFile('src/static/useEffect_useLayoutEffect.md'),
 	];
 } else {
 	const deploy = await import(
@@ -29,17 +30,20 @@ if (typeof process !== 'undefined') {
 	const deploy2 = await import('./React_개발블로그_배포기2.md');
 	const deploy3 = await import('./React_개발블로그_배포기3.md');
 	const test = await import('./헤드리스_컴포넌트_클린코드_접근법.md');
+	const useEffect = await import('./useEffect_useLayoutEffect.md');
 
 	addCategory(deploy.default);
 	addCategory(test.default);
 	addCategory(deploy2.default);
 	addCategory(deploy3.default);
+	addCategory(useEffect.default);
 
 	filesInfo.files = [
 		deploy.default,
 		test.default,
 		deploy2.default,
 		deploy3.default,
+		useEffect.default,
 	];
 }
 
