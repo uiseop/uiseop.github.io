@@ -11,9 +11,9 @@ type ButtonProps = {
 };
 
 export const Button = ({ content, onClick }: ButtonProps) => {
-	const handleClick = () => {
+	function handleClick() {
 		onClick();
-	};
+	}
 
 	return (
 		<CustonButton onClick={handleClick}>

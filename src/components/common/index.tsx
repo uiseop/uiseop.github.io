@@ -10,4 +10,3 @@ export * from './Template';
 export * from './ThemeProvider';
 export * from './ThemeToggler';
 export * from './Toast';
-export * from './Carousel';

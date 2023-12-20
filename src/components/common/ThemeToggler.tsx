@@ -10,9 +10,9 @@ export const ThemeToggler = () => {
 	const { theme, setTheme } = useTheme();
 	const nextTheme: ThemeType = theme === 'light' ? 'dark' : 'light';
 
-	const toggleTheme = () => {
+	function toggleTheme() {
 		setTheme(nextTheme);
-	};
+	}
 
 	const isDark = theme === 'dark';
 

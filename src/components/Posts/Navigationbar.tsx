@@ -1,4 +1,3 @@
-import { Carousel } from '@components/common';
 import { theme } from '@components/common/theme';
 import eStyled from '@emotion/styled';
 import { Button, styled } from '@mui/material';
@@ -10,22 +9,16 @@ interface NavigationbarProps {
 
 export const Navigationbar = ({ categories }: NavigationbarProps) => {
 	return (
-		<Carousel>
-			<Navigation>
-				<StyledLink to="/posts" end draggable={false}>
-					<CustomButton>ALL</CustomButton>
+		<Navigation>
+			<StyledLink to="/posts" end draggable={false}>
+				<CustomButton>ALL</CustomButton>
+			</StyledLink>
+			{categories.map((category) => (
+				<StyledLink to={`/posts/${category}`} key={category} draggable={false}>
+					<CustomButton>{category.toUpperCase()}</CustomButton>
 				</StyledLink>
-				{categories.map((category) => (
-					<StyledLink
-						to={`/posts/${category}`}
-						key={category}
-						draggable={false}
-					>
-						<CustomButton>{category.toUpperCase()}</CustomButton>
-					</StyledLink>
-				))}
-			</Navigation>
-		</Carousel>
+			))}
+		</Navigation>
 	);
 };
 

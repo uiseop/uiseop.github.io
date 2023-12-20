@@ -40,9 +40,9 @@ interface CodeProps
 export const MarkdownRednerer = ({ markdown }: MarkdownRednererProps) => {
 	const { content, data } = matter(markdown) as CustomGrayMatterFile;
 
-	const handleClick = (code: string) => {
+	function handleClick(code: string) {
 		copyToClipboard(code);
-	};
+	}
 
 	return (
 		<Wrapper>

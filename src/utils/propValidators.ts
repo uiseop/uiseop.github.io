@@ -1,6 +1,11 @@
-export const isNum = (v: any): v is Number =>
-	typeof v === 'number' && !isNaN(v);
+export function isNum(v: any): v is Number {
+	return typeof v === 'number' && !isNaN(v);
+}
 
-export const isStr = (v: any): v is String => typeof v === 'string';
+export function isStr(v: any): v is String {
+	return typeof v === 'string';
+}
 
-export const isFn = (v: any): v is Function => typeof v === 'function';
+export function isFn(v: any): v is Function {
+	return typeof v === 'function';
+}
