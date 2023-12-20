@@ -12,7 +12,7 @@ export const Categories = ({
 	withLink = false,
 }: CategoriesProps) => {
 	return (
-		<Wrapper className="helo">
+		<Wrapper>
 			{categories.map((category) => {
 				return (
 					<li key={category}>

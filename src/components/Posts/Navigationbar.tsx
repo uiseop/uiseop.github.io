@@ -12,11 +12,15 @@ export const Navigationbar = ({ categories }: NavigationbarProps) => {
 	return (
 		<Carousel>
 			<Navigation>
-				<StyledLink to="/posts" end>
+				<StyledLink to="/posts" end draggable={false}>
 					<CustomButton>ALL</CustomButton>
 				</StyledLink>
 				{categories.map((category) => (
-					<StyledLink to={`/posts/${category}`} key={category}>
+					<StyledLink
+						to={`/posts/${category}`}
+						key={category}
+						draggable={false}
+					>
 						<CustomButton>{category.toUpperCase()}</CustomButton>
 					</StyledLink>
 				))}
