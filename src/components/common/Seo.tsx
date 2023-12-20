@@ -9,7 +9,7 @@ interface SeoProps {
 export const Seo = ({ title, description, author }: SeoProps) => {
 	return (
 		<Helmet>
-			<title>Your Page Title</title>
+			<title>{title}</title>
 			<meta property="og:title" content={title} />
 			<meta property="og:site_title" content={title} />
 			<meta name="description" content={description} />
