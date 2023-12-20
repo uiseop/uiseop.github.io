@@ -49,7 +49,7 @@ export const useHorizontalScroll = () => {
 		} else {
 			const element = elementRef.current;
 			const x = mouseStartX - upEvent.screenX;
-			element!.scrollLeft += x;
+			element!.scrollLeft = x;
 		}
 
 		document.removeEventListener('mousemove', handleMouseMove);
