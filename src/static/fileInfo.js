@@ -5,23 +5,15 @@ const categorySet = new Set();
 
 export const filesInfo = {
 	files: [],
-	getCategories: () => {
-		return Array.from(categorySet);
-	},
+	categories: [],
 };
 
 if (typeof process !== 'undefined') {
 	// Node.js 환경 -> readFileSync 사용
 	const readFile = (direction) => {
-		return fs.readFileSync(direction, 'utf-8', (err, data) => {
-			if (err) {
-				return;
-			}
-
-			addCategory(data);
-
-			return data;
-		});
+		const data = fs.readFileSync(direction, 'utf-8');
+		addCategory(data);
+		return data;
 	};
 
 	filesInfo.files = [
@@ -42,6 +34,8 @@ if (typeof process !== 'undefined') {
 
 	filesInfo.files = [deploy.default, test.default, deploy2.default];
 }
+
+filesInfo.categories = [...categorySet];
 
 function addCategory(file) {
 	const { data } = matter(file);

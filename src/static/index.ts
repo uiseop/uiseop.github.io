@@ -18,4 +18,4 @@ export const files = [...filesInfo.files]
 		key: idx,
 	}));
 
-export const categories = filesInfo.getCategories();
+export const categories = filesInfo.categories;
