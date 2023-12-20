@@ -64,7 +64,7 @@ const Button = styled.button({
 	bottom: '30px',
 	width: '50px',
 	height: '50px',
-	borderRadius: '50%',
+	borderRadius: '50px',
 	border: 'none',
 	fontSize: '2rem',
 	color: theme.colors.text,
