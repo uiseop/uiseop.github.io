@@ -32,7 +32,6 @@ export const Categories = ({
 
 const Wrapper = styled.ul({
 	display: 'flex',
-	justifyContent: 'center',
 	alignItems: 'center',
 	gap: '4px',
 	boxSizing: 'content-box',
