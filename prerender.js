@@ -42,3 +42,22 @@ const routesToPrerender = ['/', '/about', '/posts', ...postIds, ...categories];
 		}
 	}
 })();
+
+// Generate XML for sitemap
+const generateSitemapXml = (urls) => {
+	const date = new Date().toISOString();
+	let xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`;
+
+	urls.forEach((url) => {
+		xml += `<url><loc>https://uiseop.github.io${url}</loc><lastmod>${date}</lastmod><changefreq>weekly</changefreq><priority>0.8</priority></url>\n`;
+	});
+
+	xml += `</urlset>`;
+	return xml;
+};
+
+// Generate sitemap XML content
+const sitemapXml = generateSitemapXml(routesToPrerender);
+
+// Write sitemap.xml file
+fs.writeFileSync(toAbsolute('dist/static/sitemap.xml'), sitemapXml);
