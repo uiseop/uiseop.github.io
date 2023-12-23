@@ -295,15 +295,17 @@ function SearchResults({ query }) {
 
 여기서는 아직 실험중인 기능인 useEffectEvent의 소개가 있습니다. 아직 [작업중(23.12.23 기준)](https://react-ko.dev/reference/react/experimental_useEffectEvent)이라고 뜨네요...
 
-### 4. Effect가 상호작용(예: 클릭)으로 인한 것이 아니라면, React는 브라우저가 Effect를 실행하기 전에 업데이트된 화면을 먼저 그리도록 합니다. Effect가 시각적인 작업(예: 툴팁 위치 지정)을 하고 있고, 지연이 눈에 띄는 경우(예: 깜박임), `useEffect`를 [useLayoutEffect](https://react-ko.dev/reference/react/useLayoutEffect)로 대체해야 합니다.
+### 4. Effect가 상호작용(예: 클릭)으로 인한 것이 아니라면, React는 브라우저가 Effect를 실행하기 전에 업데이트된 화면을 먼저 그리도록 합니다. Effect가 시각적인 작업(예: 툴팁 위치 지정)을 하고 있고, 지연이 눈에 띄는 경우(예: 깜박임), useEffect를 [useLayoutEffect](https://react-ko.dev/reference/react/useLayoutEffect)로 대체해야 합니다.
 
-### 5. 상호작용(예:클릭)으로 인해 Effect가 발생한 경우에도, 브라우저는 Effect 내부의 state 업데이트를 처리하기 전에 화면을 다시 그릴 수 있습니다. 보통 이게 기대하는 동작일 것입니다. 만약 브라우저가 화면을 다시 칠하지 못하도록 차단해야 하는 경우라면 `useEffect`를 [useLayoutEffect](https://react-ko.dev/reference/react/useLayoutEffect)로 바꿔야 합니다.
+(아래와 동일)
+
+### 5. 상호작용(예:클릭)으로 인해 Effect가 발생한 경우에도, 브라우저는 Effect 내부의 state 업데이트를 처리하기 전에 화면을 다시 그릴 수 있습니다. 보통 이게 기대하는 동작일 것입니다. 만약 브라우저가 화면을 다시 칠하지 못하도록 차단해야 하는 경우라면 useEffect를 [useLayoutEffect](https://react-ko.dev/reference/react/useLayoutEffect)로 바꿔야 합니다.
 
 > **useLayoutEffect**: 브라우저가 화면을 다시 채우기 전에 실행되는 버전의 useEffect 입니다.
 
 layoutEffect는 브라우저가 화면을 실제 `그리기 전에(before paint)` 실행하는 `reflow` 과정을 훅을 통해 접근할 수 있게 해줍니다.
 
-> **"reflow 과정"**에서는 DOM 요소들의 레이아웃을 측정하여 해당 DOM 요소들이 어디에, 어떻게 위치하는지 그 크기/너비를 측정하기 때문에 렌더링 과정에서 비용이 많이 드는 단계입니다. 때문에 JS를 통해 이러한 정보에 접근하거나 변경을 하면 reflow가 일어나 이로인한 시간 지연이 발생하고 이로인해 화면 깜빡임과 같은 증상이 발생할 수 있죠. 때문에, reflow를 최소화 시키기 위해 reflow를 야기시키는 로직들을 일괄적으로 처리하는 방식이 도움이 될 수 있습니다.
+> **reflow 과정**에서는 DOM 요소들의 레이아웃을 측정하여 해당 DOM 요소들이 어디에, 어떻게 위치하는지 그 크기/너비를 측정하기 때문에 렌더링 과정에서 비용이 많이 드는 단계입니다. 때문에 JS를 통해 이러한 정보에 접근하거나 변경을 하면 reflow가 일어나 이로인한 시간 지연이 발생하고 이로인해 화면 깜빡임과 같은 증상이 발생할 수 있죠. 때문에, reflow를 최소화 시키기 위해 reflow를 야기시키는 로직들을 일괄적으로 처리하는 방식이 도움이 될 수 있습니다.
 
 layoutEffect는 해당 컴포넌트를 `DOM에 배치`하고 실제 해당 컴포넌트가 `Paint 되기 전`에 `setup`함수를 실행시켜 배치된 DOM 요소들의 정보에 미리 접근할 수 있습니다. 이렇게 하면 두 번의 단계로 렌더링을 진행해야 했던 과정을 한 번으로 줄일 수 있게 됩니다.
 
@@ -334,7 +336,7 @@ function Chat() {
 
 리액트를 접할 때 가장 먼저 배우는 종합 세트 상품 중 하나인 useEffect를 이번 기회에 자세히 들여다 볼 수 있었습니다. 처음 공식문서를 살펴 보겠다고 마음 먹게 된 이유는 MUI의 코드를 뜯어보다가 `useEnhancedEffect` 훅을 보게 되었고, 내부적으로 클라이언트 환경이면 useLayoutEffect를 아니면 useEffect를 사용하는 훅이 있었습니다. 그래서 `'useLayoutEffect가 뭐지?'` 에 대한 고민이 이렇게 공식문서의 useEffect를 자세히 살펴볼 수 있는 기회로 다가왔네요.
 
-평소에 아무 생각 없이, 단순히 외부 데이터를 호출하는데 급급하게 사용하던 useEffect 혹은 반응형으로 동작하게 하고 싶어 남발하던 useEffect를 어떻게 좀 더 효과적으로 사용할 수 있을지를 내부 라이프 사이클을 정리하고, `setup` 함수와 `클린업` 함수의 호출 시점을 살펴봄으로써 앞으로 조금이나마 더 잘 쓸 수 있지 않을까 생각합니다. 
+평소에 아무 생각 없이, 단순히 외부 데이터를 호출하는데 급급하게 사용하던 useEffect 혹은 반응형으로 동작하게 하고 싶어 남발하던 useEffect를 어떻게 좀 더 효과적으로 사용할 수 있을지를 내부 라이프 사이클을 정리하고, `setup` 함수와 `클린업` 함수의 호출 시점을 살펴봄으로써 앞으로 조금이나마 더 잘 쓸 수 있지 않을까 생각합니다.
 
 리액트 공식문서 하단에 useEffect에 관한 과제들이 몇 개 주어져 있더라구요. 해당 과제를 수행하면서 공식문서를 제대로 이해했는지, 지금 내 블로그 프로젝트에서는 useEffect를 잘 사용하고 있었는지 한번 돌이켜 봐야겠습니다.
 
