@@ -20,6 +20,10 @@ export const Seo = ({ title, description, author }: SeoProps) => {
 				name="google-site-verification"
 				content="M3mi_tlJKeBDz4MW1IVV_C2qWh3-POV8_eID6k330qk"
 			/>
+			<meta
+				name="naver-site-verification"
+				content="90b385f18239610f9aa57de49326c95e95292463"
+			/>
 		</Helmet>
 	);
 };
