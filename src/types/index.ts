@@ -1,5 +1,4 @@
 import React from 'react';
-export * from './mdFile';
 // import { CloseButtonProps, IconProps } from '../components';
 
 type Nullable<T> = {
@@ -343,3 +342,5 @@ export interface ToastItem<Data = {}> {
 	// icon?: ToastIcon;
 	status: ToastItemStatus;
 }
+
+export type mdFile = '*.md';

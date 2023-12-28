@@ -12,8 +12,8 @@ const Post = () => {
 	let { state } = useLocation();
 
 	if (!state) {
-		const { postId } = useParams();
-		state = { markdown: files[parseInt(postId!)].file };
+		const { postTitle } = useParams();
+		state = { markdown: files[parseInt(postTitle!)] };
 	}
 
 	const { data } = matter(state.markdown) as CustomGrayMatterFile;

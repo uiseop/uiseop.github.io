@@ -11,7 +11,7 @@ export const Routes = () => {
 			<Route path="/" Component={Template}>
 				<Route index Component={Main} />
 				<Route path="/about" Component={About} />
-				<Route path="/:postId" Component={Post} />
+				<Route path="/:postTitle" Component={Post} />
 				<Route path="/posts" Component={Posts}>
 					<Route path=":category" Component={Posts} />
 				</Route>

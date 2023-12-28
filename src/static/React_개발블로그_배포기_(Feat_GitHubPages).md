@@ -4,6 +4,7 @@ date: '2023-12-15 00:00:00'
 author: 'uiseop'
 categories: [react, trouble_shooting, deploy]
 summary: '개발한 React 환경의 개발 블로그를 GitHub Pages로 배포 과정을 정리합니다.'
+urlTitle: 'react-dev-blog-delpoy-feat-github-pages-chapter-1'
 ---
 
 ## Introduction

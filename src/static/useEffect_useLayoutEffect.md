@@ -4,6 +4,7 @@ date: '2023-12-23 00:00:00'
 author: 'uiseop'
 categories: [react]
 summary: 'useEffect의 라이프 사이클을 알아보고 useEffect 훅이 무엇인지, 언제 어떻게 실행되는지 공식 문서를 바탕으로 다시 공부해보도록 합니다.'
+urlTitle: 'did-you-use-useEffect-exactly'
 ---
 
 ## useEffect(setup, dependencies?)

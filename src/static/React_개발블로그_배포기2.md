@@ -4,6 +4,7 @@ date: '2023-12-19 00:00:00'
 author: 'uiseop'
 categories: [react, trouble_shooting, deploy]
 summary: 'CSR 방식에서 SSR 방식(정확히는 SSG)로 변경하면서 좌충우돌 겪었던 히스토리를 정리합니다.'
+urlTitle: 'react-dev-blog-delpoy-feat-github-pages-chapter-2'
 ---
 
 ## Introduction

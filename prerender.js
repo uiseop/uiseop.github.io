@@ -1,6 +1,7 @@
 // Pre-render the app into static HTML.
 // run `yarn generate` and then `dist/static` can be served as a static site.
 
+import matter from 'gray-matter';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -15,13 +16,20 @@ const template = fs.readFileSync(toAbsolute('dist/static/index.html'), 'utf-8');
 const { render } = await import('./dist/server/entry-server.js');
 const { filesInfo } = await import('./src/static/fileInfo.js');
 
-const postIds = new Array(filesInfo.files.length)
-	.fill(null)
-	.map((_, idx) => `/${idx}`);
+const postTitles = filesInfo.files.map((file) => {
+	const { data } = matter(file);
+	return `/${data.urlTitle}`;
+});
 
 const categories = filesInfo.categories.map((category) => `/posts/${category}`);
 
-const routesToPrerender = ['/', '/about', '/posts', ...postIds, ...categories];
+const routesToPrerender = [
+	'/',
+	'/about',
+	'/posts',
+	...postTitles,
+	...categories,
+];
 
 (async () => {
 	// pre-render each route...
