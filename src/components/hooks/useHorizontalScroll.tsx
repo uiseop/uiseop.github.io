@@ -5,7 +5,7 @@ const start = 'left';
 const scrollStart = 'scrollLeft';
 const end = 'right';
 
-export const useHorizontalScroll = () => {
+export const useHorizontalScroll = (param?: string) => {
 	const elementRef = useRef<HTMLElement>(null);
 	let mouseStartX: number;
 	let isDragging = false;
@@ -15,6 +15,13 @@ export const useHorizontalScroll = () => {
 		const element = elementRef.current;
 
 		if (element) {
+			if (param) {
+				const button = element.querySelector(
+					`button[value="${param}"]`,
+				) as HTMLElement;
+				scrollSelectedIntoView(button);
+			}
+
 			element.onmousedown = handleMouseDown;
 
 			return () => {

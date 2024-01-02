@@ -2,14 +2,15 @@ import { theme } from '@components/common/theme';
 import { useHorizontalScroll } from '@components/hooks';
 import eStyled from '@emotion/styled';
 import { Button, styled } from '@mui/material';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 
 interface NavigationbarProps {
 	categories: string[];
 }
 
 export const Navigationbar = ({ categories }: NavigationbarProps) => {
-	const navRef = useHorizontalScroll();
+	const { category } = useParams();
+	const navRef = useHorizontalScroll(category);
 
 	return (
 		<Navigation ref={navRef}>
@@ -18,7 +19,7 @@ export const Navigationbar = ({ categories }: NavigationbarProps) => {
 			</StyledLink>
 			{categories.map((category) => (
 				<StyledLink to={`/posts/${category}`} key={category} draggable={false}>
-					<CustomButton>{category.toUpperCase()}</CustomButton>
+					<CustomButton value={category}>{category.toUpperCase()}</CustomButton>
 				</StyledLink>
 			))}
 		</Navigation>
