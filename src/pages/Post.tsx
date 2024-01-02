@@ -1,28 +1,21 @@
-import { useLocation, useParams } from 'react-router-dom';
 import {
 	CustomGrayMatterFile,
 	Header,
 	MarkdownRednerer,
 } from '@components/common';
-import { files } from '@static/index';
 import { Seo } from '@components/common/Seo';
-import matter from 'gray-matter';
 
-const Post = () => {
-	let { state } = useLocation();
+interface PostProps {
+	file: CustomGrayMatterFile;
+}
 
-	if (!state) {
-		const { postTitle } = useParams();
-		state = { markdown: files[parseInt(postTitle!)] };
-	}
-
-	const { data } = matter(state.markdown) as CustomGrayMatterFile;
-
+const Post = ({ file }: PostProps) => {
+	const { data, content } = file;
 	return (
 		<>
 			<Seo title={data.title} description={data.summary} author={data.author} />
 			<Header />
-			<MarkdownRednerer markdown={state.markdown} />
+			<MarkdownRednerer content={content} data={data} />
 		</>
 	);
 };

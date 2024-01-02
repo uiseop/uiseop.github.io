@@ -2,33 +2,29 @@ import { theme } from '@components/common/theme';
 import { ellipsis } from '@components/styles/ellipsis';
 import styled from '@emotion/styled';
 import { Link, useParams } from 'react-router-dom';
-import matter from 'gray-matter';
 import { CustomGrayMatterFile } from '@components/common/MarkdownRenderer';
 import { Categories, Date } from '@components/common';
-import { mdFile } from 'types';
 
 interface PostListProps {
-	files: mdFile[];
+	files: CustomGrayMatterFile[];
 }
 
 export const PostList = ({ files }: PostListProps) => {
 	const { category } = useParams();
 
-	const filteredFiles = files.filter((file) => {
+	const filteredFiles = files.filter(({ data }) => {
 		if (!category) return true;
 
-		const { data } = matter(file) as CustomGrayMatterFile;
 		if (data.categories.includes(category)) return true;
 		return false;
 	});
 
 	return (
 		<Wrapper>
-			{filteredFiles.map((file) => {
-				const { data } = matter(file) as CustomGrayMatterFile;
+			{filteredFiles.map(({ data }) => {
 				return (
 					<li key={data.urlTitle}>
-						<Link to={`/${data.urlTitle}`} state={{ markdown: file, data }}>
+						<Link to={`/${data.urlTitle}`}>
 							<PostTitle>{data.title}</PostTitle>
 							<PostContet>{data.summary}</PostContet>
 							<PostInfoWrapper>

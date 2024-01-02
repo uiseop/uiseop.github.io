@@ -1,16 +1,12 @@
-import matter from 'gray-matter';
-import { CustomGrayMatterFile } from '@components/common';
 import { compareTimes } from '@utils/compareTimes';
 import { filesInfo } from './fileInfo';
-import { mdFile } from 'types';
+import { CustomGrayMatterFile } from '@components/common';
 
-export const files: mdFile[] = [...filesInfo.files].sort((a, b) => {
-	const {
-		data: { date: aDate },
-	} = matter(a) as CustomGrayMatterFile;
-	const {
-		data: { date: bDate },
-	} = matter(b) as CustomGrayMatterFile;
+export const files: CustomGrayMatterFile[] = [
+	...(filesInfo.files as CustomGrayMatterFile[]),
+].sort((a, b) => {
+	const aDate = a.data.date;
+	const bDate = b.data.date;
 	return compareTimes(aDate, bDate);
 });
 

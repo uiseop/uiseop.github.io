@@ -4,25 +4,26 @@ import fs from 'fs';
 const categorySet = new Set();
 
 export const filesInfo = {
-	files: [],
+	files: [], // { data, content }[]
 	categories: [],
 };
 
 if (typeof process !== 'undefined') {
 	// Node.js 환경 -> readFileSync 사용
 	const readFile = (direction) => {
-		const data = fs.readFileSync(direction, 'utf-8');
-		addCategory(data);
-		return data;
+		const file = fs.readFileSync(direction, 'utf-8');
+		return file;
 	};
 
 	filesInfo.files = [
-		readFile('src/static/React_개발블로그_배포기_(Feat_GitHubPages).md'),
-		readFile('src/static/React_개발블로그_배포기2.md'),
-		readFile('src/static/React_개발블로그_배포기3.md'),
-		readFile('src/static/헤드리스_컴포넌트_클린코드_접근법.md'),
-		readFile('src/static/useEffect_useLayoutEffect.md'),
-		readFile('src/static/22860.md'),
+		handleFile(
+			readFile('src/static/React_개발블로그_배포기_(Feat_GitHubPages).md'),
+		),
+		handleFile(readFile('src/static/React_개발블로그_배포기2.md')),
+		handleFile(readFile('src/static/React_개발블로그_배포기3.md')),
+		handleFile(readFile('src/static/헤드리스_컴포넌트_클린코드_접근법.md')),
+		handleFile(readFile('src/static/useEffect_useLayoutEffect.md')),
+		handleFile(readFile('src/static/22860.md')),
 	];
 } else {
 	const deploy = await import(
@@ -34,26 +35,29 @@ if (typeof process !== 'undefined') {
 	const useEffect = await import('./useEffect_useLayoutEffect.md');
 	const algo22860 = await import('./22860.md');
 
-	addCategory(deploy.default);
-	addCategory(test.default);
-	addCategory(deploy2.default);
-	addCategory(deploy3.default);
-	addCategory(useEffect.default);
-	addCategory(algo22860.default);
-
 	filesInfo.files = [
-		deploy.default,
-		test.default,
-		deploy2.default,
-		deploy3.default,
-		useEffect.default,
-		algo22860.default,
+		handleFile(deploy.default),
+		handleFile(test.default),
+		handleFile(deploy2.default),
+		handleFile(deploy3.default),
+		handleFile(useEffect.default),
+		handleFile(algo22860.default),
 	];
 }
 
 filesInfo.categories = [...categorySet];
 
-function addCategory(file) {
-	const { data } = matter(file);
+function handleFile(file) {
+	const { data, content } = matter(file);
+
+	addCategory(data);
+
+	return {
+		data,
+		content,
+	};
+}
+
+function addCategory(data) {
 	data.categories.forEach((category) => categorySet.add(category));
 }

@@ -10,6 +10,7 @@ interface HelmetContextProps {
 
 export function render(url: string) {
 	const helmetContext: HelmetContextProps = {};
+	console.log(typeof url, 'helo');
 
 	const html = ReactDOMServer.renderToString(
 		<React.StrictMode>

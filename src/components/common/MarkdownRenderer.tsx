@@ -1,17 +1,13 @@
 import Markdown from 'react-markdown';
 import React from 'react';
 import styled from '@emotion/styled';
-import matter, { GrayMatterFile } from 'gray-matter';
+import { GrayMatterFile } from 'gray-matter';
 import 'dayjs/locale/en';
 import { theme } from './theme';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { copyToClipboard } from '@utils/index';
 import { Header } from '@components/Posts';
 import { Button } from '.';
-
-type MarkdownRednererProps = {
-	markdown: '*.md';
-};
 
 type HeadingLevels = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -21,13 +17,19 @@ export type HeaderProps = {
 	categories: string[];
 	summary: string;
 	author: string;
+	urlTitle: string;
 };
 
 export type CustomGrayMatterFile = GrayMatterFile<
-	MarkdownRednererProps['markdown']
+	MarkdownRednererProps['content']
 > & {
 	data: HeaderProps;
 };
+
+interface MarkdownRednererProps {
+	content: string;
+	data: HeaderProps;
+}
 
 interface CodeProps
 	extends React.DetailedHTMLProps<
@@ -37,9 +39,7 @@ interface CodeProps
 	className?: string;
 }
 
-export const MarkdownRednerer = ({ markdown }: MarkdownRednererProps) => {
-	const { content, data } = matter(markdown) as CustomGrayMatterFile;
-
+export const MarkdownRednerer = ({ content, data }: MarkdownRednererProps) => {
 	function handleClick(code: string) {
 		copyToClipboard(code);
 	}
