@@ -24,6 +24,7 @@ if (typeof process !== 'undefined') {
 		handleFile(readFile('src/static/헤드리스_컴포넌트_클린코드_접근법.md')),
 		handleFile(readFile('src/static/useEffect_useLayoutEffect.md')),
 		handleFile(readFile('src/static/22860.md')),
+		handleFile(readFile('src/static/14600.md')),
 	];
 } else {
 	const deploy = await import(
@@ -34,6 +35,7 @@ if (typeof process !== 'undefined') {
 	const test = await import('./헤드리스_컴포넌트_클린코드_접근법.md');
 	const useEffect = await import('./useEffect_useLayoutEffect.md');
 	const algo22860 = await import('./22860.md');
+	const algo14600 = await import('./14600.md');
 
 	filesInfo.files = [
 		handleFile(deploy.default),
@@ -42,6 +44,7 @@ if (typeof process !== 'undefined') {
 		handleFile(deploy3.default),
 		handleFile(useEffect.default),
 		handleFile(algo22860.default),
+		handleFile(algo14600.default),
 	];
 }
 
