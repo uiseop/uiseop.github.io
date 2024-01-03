@@ -25,6 +25,10 @@ if (typeof process !== 'undefined') {
 		handleFile(readFile('src/static/useEffect_useLayoutEffect.md')),
 		handleFile(readFile('src/static/22860.md')),
 		handleFile(readFile('src/static/14600.md')),
+		handleFile(readFile('src/static/why_setState_calls_side_effect.md')),
+		handleFile(
+			readFile('src/static/Frontend_에서의_깨끗한_코드란_무엇일까.md'),
+		),
 	];
 } else {
 	const deploy = await import(
@@ -34,6 +38,8 @@ if (typeof process !== 'undefined') {
 	const deploy3 = await import('./React_개발블로그_배포기3.md');
 	const test = await import('./헤드리스_컴포넌트_클린코드_접근법.md');
 	const useEffect = await import('./useEffect_useLayoutEffect.md');
+	const setState = await import('./why_setState_calls_side_effect.md');
+	const cleanCode = await import('./Frontend_에서의_깨끗한_코드란_무엇일까.md');
 	const algo22860 = await import('./22860.md');
 	const algo14600 = await import('./14600.md');
 
@@ -43,6 +49,8 @@ if (typeof process !== 'undefined') {
 		handleFile(deploy2.default),
 		handleFile(deploy3.default),
 		handleFile(useEffect.default),
+		handleFile(setState.default),
+		handleFile(cleanCode.default),
 		handleFile(algo22860.default),
 		handleFile(algo14600.default),
 	];
