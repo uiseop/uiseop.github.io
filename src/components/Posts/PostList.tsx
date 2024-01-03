@@ -13,7 +13,10 @@ export const PostList = ({ files }: PostListProps) => {
 	const { category } = useParams();
 
 	const filteredFiles = files.filter(({ data }) => {
-		if (!category) return true;
+		if (!category) {
+			if (!data.categories.includes('algorithm')) return true;
+			return false;
+		}
 
 		if (data.categories.includes(category)) return true;
 		return false;
