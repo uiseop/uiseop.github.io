@@ -2,7 +2,7 @@
 title: '신입 프론트엔드 개발자 입장에서 생각하는 클린 코드 - 1'
 date: '2023-12-28'
 author: 'uiseop'
-categories: [react, clean code]
+categories: [react, clean_code]
 summary: '성숙한 개발자가 되기 위한 덕목 중 하나인 클린 코드, 신입 입장에서 이해한 클린 코드란? 프론트엔드 입장에서 클린 코드를 어떻게 적용할 수 있을지에 대한 고찰'
 urlTitle: '신입-프론트엔드-개발자가-생각하는-클린-코드'
 ---
