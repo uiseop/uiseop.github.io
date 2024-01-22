@@ -29,8 +29,8 @@ if (typeof process !== 'undefined') {
 		handleFile(
 			readFile('src/static/Frontend_에서의_깨끗한_코드란_무엇일까.md'),
 		),
-		handleFile(readFile('src/리액트를_처음부터_배워보자.md')),
-		handleFile(readFile('src/리액트를_처음부터_배워보자_2.md')),
+		handleFile(readFile('src/static/리액트를_처음부터_배워보자.md')),
+		handleFile(readFile('src/static/리액트를_처음부터_배워보자_2.md')),
 	];
 } else {
 	const deploy = await import(
