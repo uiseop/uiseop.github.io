@@ -31,6 +31,7 @@ if (typeof process !== 'undefined') {
 		),
 		handleFile(readFile('src/static/리액트를_처음부터_배워보자.md')),
 		handleFile(readFile('src/static/리액트를_처음부터_배워보자_2.md')),
+		handleFile(readFile('src/static/리액트를_처음부터_배워보자_3.md')),
 	];
 } else {
 	const deploy = await import(
@@ -46,6 +47,7 @@ if (typeof process !== 'undefined') {
 	const algo14600 = await import('./14600.md');
 	const react1 = await import('./리액트를_처음부터_배워보자.md');
 	const react2 = await import('./리액트를_처음부터_배워보자_2.md');
+	const react3 = await import('./리액트를_처음부터_배워보자_3.md');
 
 	filesInfo.files = [
 		handleFile(deploy.default),
@@ -59,6 +61,7 @@ if (typeof process !== 'undefined') {
 		handleFile(algo14600.default),
 		handleFile(react1.default),
 		handleFile(react2.default),
+		handleFile(react3.default),
 	];
 }
 
